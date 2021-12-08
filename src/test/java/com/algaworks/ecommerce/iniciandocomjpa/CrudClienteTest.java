@@ -1,5 +1,6 @@
 package com.algaworks.ecommerce.iniciandocomjpa;
 
+
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.Cliente;
 import static org.junit.Assert.*;

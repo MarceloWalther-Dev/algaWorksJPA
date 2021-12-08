@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="algaworks-ecommerce" />
+        <module name="algaWorksJPA" />
       </profile>
     </annotationProcessing>
   </component>
