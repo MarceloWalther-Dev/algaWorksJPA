@@ -10,6 +10,26 @@ import java.math.BigDecimal;
 public class OperacaoComTransacaoTest extends EntityManagerTest {
 
     @Test
+    public void impedirOperacaoComBancoDeDados(){
+        Produto produto = entityManager.find(Produto.class, 1);
+        entityManager.detach(produto);
+
+        entityManager.getTransaction().begin();
+        produto.setNome("KinderOvo");
+        entityManager.getTransaction().commit();
+
+        entityManager.clear();
+
+        Produto produtoVerificacao = entityManager.find(Produto.class, produto.getId());
+        Assert.assertEquals("KinderOvo", produtoVerificacao.getNome());
+
+
+    }
+
+
+
+
+    @Test
     public void inserirObjetoMerge(){
         Produto produto = new Produto();
 
