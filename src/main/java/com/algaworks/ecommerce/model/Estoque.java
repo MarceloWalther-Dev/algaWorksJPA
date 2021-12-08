@@ -4,21 +4,13 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Cliente {
+public class Estoque {
     @Id
     private Integer id;
 
-    private String nome;
+    private Integer produtoId;
 
-    private SexoCLiente sexo;
-
-    public Cliente() {
-    }
-
-    public Cliente(Integer id, String nome) {
-        this.id = id;
-        this.nome = nome;
-    }
+    private Integer quantidade;
 
     public Integer getId() {
         return id;
@@ -28,20 +20,20 @@ public class Cliente {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public Integer getProdutoId() {
+        return produtoId;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setProdutoId(Integer produtoId) {
+        this.produtoId = produtoId;
     }
 
-    public SexoCLiente getSexo() {
-        return sexo;
+    public Integer getQuantidade() {
+        return quantidade;
     }
 
-    public void setSexo(SexoCLiente sexo) {
-        this.sexo = sexo;
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
     }
 
     @Override
@@ -49,9 +41,9 @@ public class Cliente {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Cliente cliente = (Cliente) o;
+        Estoque categoria = (Estoque) o;
 
-        return id.equals(cliente.id);
+        return id.equals(categoria.id);
     }
 
     @Override
