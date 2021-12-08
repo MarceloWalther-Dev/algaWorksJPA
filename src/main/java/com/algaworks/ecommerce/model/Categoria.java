@@ -4,21 +4,13 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Cliente {
+public class Categoria {
     @Id
     private Integer id;
 
     private String nome;
 
-    private SexoCLiente sexo;
-
-    public Cliente() {
-    }
-
-    public Cliente(Integer id, String nome) {
-        this.id = id;
-        this.nome = nome;
-    }
+    private Integer categoriaPaiId;
 
     public Integer getId() {
         return id;
@@ -36,12 +28,12 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public SexoCLiente getSexo() {
-        return sexo;
+    public Integer getCategoriaPaiId() {
+        return categoriaPaiId;
     }
 
-    public void setSexo(SexoCLiente sexo) {
-        this.sexo = sexo;
+    public void setCategoriaPaiId(Integer categoriaPaiId) {
+        this.categoriaPaiId = categoriaPaiId;
     }
 
     @Override
@@ -49,9 +41,9 @@ public class Cliente {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Cliente cliente = (Cliente) o;
+        Categoria categoria = (Categoria) o;
 
-        return id.equals(cliente.id);
+        return id.equals(categoria.id);
     }
 
     @Override
