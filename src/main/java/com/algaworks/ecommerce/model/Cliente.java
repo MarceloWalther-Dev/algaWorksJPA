@@ -2,8 +2,10 @@ package com.algaworks.ecommerce.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "cliente")
 public class Cliente {
     @Id
     private Integer id;
