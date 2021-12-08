@@ -10,7 +10,8 @@ public class CrudClienteTest extends EntityManagerTest {
 
     @Test
     public void inserirUmCliente(){
-        Cliente cliente = new Cliente(4,"Marcelo");
+        Cliente cliente = new Cliente();
+        cliente.setNome("Marcelo");
         entityManager.getTransaction().begin();
         entityManager.persist(cliente);
         entityManager.getTransaction().commit();
