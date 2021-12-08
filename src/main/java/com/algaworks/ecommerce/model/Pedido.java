@@ -1,9 +1,6 @@
 package com.algaworks.ecommerce.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -25,7 +22,12 @@ public class Pedido {
 
     private BigDecimal total;
 
+    @Enumerated(EnumType.STRING)
     private StatusPedido status;
+
+    @Embedded
+    @Column(name = "endereco_entrega")
+    private EnderecoEntregaPedido enderecoEntrega;
 
     public Integer getId() {
         return id;
@@ -73,6 +75,14 @@ public class Pedido {
 
     public void setStatus(StatusPedido status) {
         this.status = status;
+    }
+
+    public EnderecoEntregaPedido getEnderecoEntrega() {
+        return enderecoEntrega;
+    }
+
+    public void setEnderecoEntrega(EnderecoEntregaPedido enderecoEntrega) {
+        this.enderecoEntrega = enderecoEntrega;
     }
 
     @Override
