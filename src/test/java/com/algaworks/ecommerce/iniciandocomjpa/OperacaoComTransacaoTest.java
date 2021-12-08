@@ -17,7 +17,6 @@ public class OperacaoComTransacaoTest extends EntityManagerTest {
         produto.setNome("Microfone Rode Videmic");
         produto.setDescricao("A melhor qualidade de som.");
         produto.setPreco(new BigDecimal(1000));
-
         entityManager.getTransaction().begin();
 
         entityManager.merge(produto);
