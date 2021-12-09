@@ -3,6 +3,7 @@ package com.algaworks.ecommerce.model;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "pedido")
@@ -15,6 +16,9 @@ public class Pedido {
     @ManyToOne
     @JoinColumn(name = "cliente_id") // o padrão dele já esse mas é bom deixar explicito
     private Cliente cliente;
+
+    @OneToMany(mappedBy = "pedido")
+    private List<ItemPedido> itensPedido;
 
     @Column(name = "data_pedido")
     private LocalDateTime dataPedido;

@@ -1,6 +1,7 @@
 package com.algaworks.ecommerce.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "cliente")
@@ -13,6 +14,9 @@ public class Cliente {
 
     @Enumerated(EnumType.STRING)
     private SexoCLiente sexo;
+
+    @OneToMany(mappedBy = "cliente")// lá na minha classe pedido no atributo cliente tem os meta dados para que o jpa utilize para gerar as consultas
+    private List<Pedido> pedidos;
 
     public Cliente() {
     }
@@ -44,6 +48,14 @@ public class Cliente {
 
     public void setSexo(SexoCLiente sexo) {
         this.sexo = sexo;
+    }
+
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
     }
 
     @Override
