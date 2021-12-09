@@ -12,6 +12,10 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @ManyToOne
+    @JoinColumn(name = "cliente_id") // o padrão dele já esse mas é bom deixar explicito
+    private Cliente cliente;
+
     @Column(name = "data_pedido")
     private LocalDateTime dataPedido;
 
@@ -84,6 +88,14 @@ public class Pedido {
 
     public void setEnderecoEntrega(EnderecoEntregaPedido enderecoEntrega) {
         this.enderecoEntrega = enderecoEntrega;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     @Override
