@@ -19,6 +19,9 @@ public class Categoria {
     @OneToMany(mappedBy = "categoriaPai")
     private List<Categoria> categorias;
 
+    @ManyToMany(mappedBy = "categorias")
+    private List<Produto> produtos;
+
 
     public Integer getId() {
         return id;
@@ -42,6 +45,22 @@ public class Categoria {
 
     public void setCategoriaPai(Categoria categoriaPai) {
         this.categoriaPai = categoriaPai;
+    }
+
+    public List<Categoria> getCategorias() {
+        return categorias;
+    }
+
+    public void setCategorias(List<Categoria> categorias) {
+        this.categorias = categorias;
+    }
+
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
     }
 
     @Override

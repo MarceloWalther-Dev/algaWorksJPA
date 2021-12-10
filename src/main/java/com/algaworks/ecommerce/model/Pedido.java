@@ -26,8 +26,8 @@ public class Pedido {
     @Column(name = "data_conclusao")
     private LocalDateTime dataConclusao;
 
-    @Column(name = "nota_fiscal_id")
-    private Integer notaFiscalId;
+    @OneToOne(mappedBy = "pedido")
+    private NotaFiscal notaFiscal;
 
     private BigDecimal total;
 
@@ -37,6 +37,9 @@ public class Pedido {
     @Embedded
     @Column(name = "endereco_entrega")
     private EnderecoEntregaPedido enderecoEntrega;
+
+    @OneToOne(mappedBy = "pedido")
+    private PagamentoCartao pagamento;
 
     public Integer getId() {
         return id;
@@ -62,12 +65,12 @@ public class Pedido {
         this.dataConclusao = dataConclusao;
     }
 
-    public Integer getNotaFiscalId() {
-        return notaFiscalId;
+    public NotaFiscal getNotaFiscal() {
+        return notaFiscal;
     }
 
-    public void setNotaFiscalId(Integer notaFiscalId) {
-        this.notaFiscalId = notaFiscalId;
+    public void setNotaFiscal(NotaFiscal notaFiscal) {
+        this.notaFiscal = notaFiscal;
     }
 
     public BigDecimal getTotal() {
@@ -108,6 +111,14 @@ public class Pedido {
 
     public void setItensPedido(List<ItemPedido> itensPedido) {
         this.itensPedido = itensPedido;
+    }
+
+    public PagamentoCartao getPagamento() {
+        return pagamento;
+    }
+
+    public void setPagamento(PagamentoCartao pagamento) {
+        this.pagamento = pagamento;
     }
 
     @Override

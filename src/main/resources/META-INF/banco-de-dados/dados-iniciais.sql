@@ -2,9 +2,12 @@ insert into produto (id, nome, preco, descricao) values (1, 'Kindle', 499.0, 'Co
 insert into produto (id, nome, preco, descricao) values (3, 'Câmera GoPro Hero 7', 1400.0, 'Desempenho 2x melhor.');
 
 
-insert into cliente (id, nome) values (1, "Cliente 1");
-insert into cliente (id, nome) values (2, "Theozinho");
-insert into cliente (id, nome) values (3, "Dianiffer");
+insert into cliente (id, nome) values (1, 'Cliente 1');
+insert into cliente (id, nome) values (2, 'Theozinho');
+insert into cliente (id, nome) values (3, 'Dianiffer');
 
 insert into pedido (id, cliente_id, data_pedido, total, status) values (1, 1, sysdate(), 100.0, 'AGUARDANDO');
 insert into item_pedido (id, pedido_id, produto_id, preco_produto, quantidade) values (1, 1, 1, 5.0, 2);
+
+
+insert into categoria (id, nome) values (1, 'Eletrônicos');

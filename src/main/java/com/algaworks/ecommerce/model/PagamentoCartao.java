@@ -10,9 +10,11 @@ public class PagamentoCartao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "pedido_id")
-    private Integer pedidoId;
+    @OneToOne
+    @JoinColumn(name = "pedido_id")
+    private Pedido pedido;
 
+    @Enumerated(EnumType.STRING)
     private StatusPagamento status;
 
     private String numero;
@@ -25,12 +27,12 @@ public class PagamentoCartao {
         this.id = id;
     }
 
-    public Integer getPedidoId() {
-        return pedidoId;
+    public Pedido getPedido() {
+        return pedido;
     }
 
-    public void setPedidoId(Integer pedidoId) {
-        this.pedidoId = pedidoId;
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
     }
 
     public StatusPagamento getStatus() {
