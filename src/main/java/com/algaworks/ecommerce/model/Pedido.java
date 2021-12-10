@@ -102,6 +102,14 @@ public class Pedido {
         this.cliente = cliente;
     }
 
+    public List<ItemPedido> getItensPedido() {
+        return itensPedido;
+    }
+
+    public void setItensPedido(List<ItemPedido> itensPedido) {
+        this.itensPedido = itensPedido;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
