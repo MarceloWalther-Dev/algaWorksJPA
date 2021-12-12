@@ -13,7 +13,7 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     @JoinColumn(name = "cliente_id") // o padrão dele já esse mas é bom deixar explicito
     private Cliente cliente;
 
@@ -120,6 +120,8 @@ public class Pedido {
     public void setPagamento(PagamentoCartao pagamento) {
         this.pagamento = pagamento;
     }
+
+
 
     @Override
     public boolean equals(Object o) {
