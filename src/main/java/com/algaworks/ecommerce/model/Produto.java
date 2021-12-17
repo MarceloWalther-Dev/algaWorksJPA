@@ -2,6 +2,7 @@ package com.algaworks.ecommerce.model;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -26,6 +27,14 @@ public class Produto {
 
     @OneToOne(mappedBy = "produto")
     private Estoque estoque;
+
+    //updatable = false garantimos que ele não tenha mudado o valor no update do produto
+    @Column(name = "data_criacao", updatable = false)
+    private LocalDateTime dataCriacao;
+
+    //insertable = false garantimos que ele não tenha valor na inserção
+    @Column(name = "data_ultima_atualizacao", insertable = false)
+    private LocalDateTime dataUltimaAtualizacao;
 
     public Integer getId() {
         return id;
@@ -73,6 +82,22 @@ public class Produto {
 
     public void setEstoque(Estoque estoque) {
         this.estoque = estoque;
+    }
+
+    public LocalDateTime getDataCriacao() {
+        return dataCriacao;
+    }
+
+    public void setDataCriacao(LocalDateTime dataCriacao) {
+        this.dataCriacao = dataCriacao;
+    }
+
+    public LocalDateTime getDataUltimaAtualizacao() {
+        return dataUltimaAtualizacao;
+    }
+
+    public void setDataUltimaAtualizacao(LocalDateTime dataUltimaAtualizacao) {
+        this.dataUltimaAtualizacao = dataUltimaAtualizacao;
     }
 
     @Override
