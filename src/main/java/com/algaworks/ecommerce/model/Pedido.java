@@ -1,5 +1,7 @@
 package com.algaworks.ecommerce.model;
 
+import com.algaworks.ecommerce.listener.GerarNotaFiscalListener;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -7,6 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "pedido")
+@EntityListeners({GerarNotaFiscalListener.class})
 public class Pedido {
 
     @Id
@@ -20,8 +23,11 @@ public class Pedido {
     @OneToMany(mappedBy = "pedido")
     private List<ItemPedido> itensPedido;
 
-    @Column(name = "data_pedido")
-    private LocalDateTime dataPedido;
+    @Column(name = "data_criacao")
+    private LocalDateTime dataCriacao;
+
+    @Column(name = "data_ultima_atualizacao")
+    private LocalDateTime dataUltimaAtualizacao;
 
     @Column(name = "data_conclusao")
     private LocalDateTime dataConclusao;
@@ -49,12 +55,12 @@ public class Pedido {
         this.id = id;
     }
 
-    public LocalDateTime getDataPedido() {
-        return dataPedido;
+    public LocalDateTime getDataCriacao() {
+        return dataCriacao;
     }
 
-    public void setDataPedido(LocalDateTime dataPedido) {
-        this.dataPedido = dataPedido;
+    public void setDataCriacao(LocalDateTime dataCriacao) {
+        this.dataCriacao = dataCriacao;
     }
 
     public LocalDateTime getDataConclusao() {
@@ -120,6 +126,44 @@ public class Pedido {
     public void setPagamento(PagamentoCartao pagamento) {
         this.pagamento = pagamento;
     }
+
+    public LocalDateTime getDataUltimaAtualizacao() {
+        return dataUltimaAtualizacao;
+    }
+
+    public void setDataUltimaAtualizacao(LocalDateTime dataUltimaAtualizacao) {
+        this.dataUltimaAtualizacao = dataUltimaAtualizacao;
+    }
+
+
+    public boolean isPago(){
+        return StatusPedido.PAGO.equals(status);
+    }
+
+
+    private void calcularTotal(){
+        if (this.itensPedido != null){
+            this.total = itensPedido.stream()
+                    .map(ItemPedido::getPrecoProduto)
+                    .reduce(BigDecimal.ZERO, BigDecimal::add);
+        }
+    }
+
+
+    //callbacks{
+    @PrePersist// a propriedade sera atribuida o valor assim que ele persistir
+    public void aoPersistir(){
+       this.dataCriacao = LocalDateTime.now();
+       this.calcularTotal();
+    }
+
+    @PreUpdate// a propriedade recebera valor assim que acontecer o update
+    public void aoAtualizar(){
+        this.dataUltimaAtualizacao = LocalDateTime.now();
+        this.calcularTotal();
+    }
+
+
 
 
 
