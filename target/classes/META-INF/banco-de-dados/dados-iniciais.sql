@@ -2,7 +2,7 @@ insert into produto (id, nome, preco, data_criacao ,descricao) values (1, 'Kindl
 insert into produto (id, nome, preco, data_criacao ,descricao) values (3, 'Câmera GoPro Hero 7', 1400.0, date_sub(sysdate(), interval 1 day) ,'Desempenho 2x melhor.');
 
 
-insert into cliente (id, nome) values (1, 'Cliente 1');
+insert into cliente (id, nome) values (1, 'Fernando Ferrerira');
 insert into cliente (id, nome) values (2, 'Theozinho');
 insert into cliente (id, nome) values (3, 'Dianiffer');
 
