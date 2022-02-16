@@ -49,4 +49,11 @@ public class Produto {
     @CollectionTable(name = "produto_tag", joinColumns = @JoinColumn(name = "produto_id"))
     @Column(name = "tag")
     private Set<String> tags;
+
+    @ElementCollection
+    @CollectionTable(name = "produto_atributo",
+            joinColumns = @JoinColumn(name = "produto_id")) // nao vamos costumizar o nome da coluna,
+    // pois sera os atributos da lista de Atributos, caso haja necessidade teriamos que entrar dentro do Atributos e usar anotacao @Column
+    private List<Atributo> atributos;
+
 }
