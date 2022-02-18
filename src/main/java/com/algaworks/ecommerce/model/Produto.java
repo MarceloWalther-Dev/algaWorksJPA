@@ -56,4 +56,7 @@ public class Produto {
     // pois sera os atributos da lista de Atributos, caso haja necessidade teriamos que entrar dentro do Atributos e usar anotacao @Column
     private List<Atributo> atributos;
 
+    @Lob
+    private byte[] foto;
+
 }
