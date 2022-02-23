@@ -13,6 +13,7 @@ import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Date;
+import java.util.Objects;
 
 public class SalvandoArquivoTest extends EntityManagerTest {
 
@@ -73,7 +74,7 @@ public class SalvandoArquivoTest extends EntityManagerTest {
 
     private static byte[] carregarArquivo(String nome){
         try{
-            return SalvandoArquivoTest.class.getResourceAsStream(nome).readAllBytes();
+            return Objects.requireNonNull(SalvandoArquivoTest.class.getResourceAsStream(nome)).readAllBytes();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

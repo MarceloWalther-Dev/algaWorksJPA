@@ -3,12 +3,15 @@ package com.algaworks.ecommerce.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@SecondaryTable(name = "cliente_detalhe",pkJoinColumns = @PrimaryKeyJoinColumn(name = "cliente_id"))
+//Jpa vai entender que e para criar um tabela com o nome cliente detalhe com a coluna cliente_id e que ao mesmo tempo ela sera primary key e fk para a tabela cliente
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -32,7 +35,11 @@ public class Cliente {
     private String primeiroNome;
 
     @Enumerated(EnumType.STRING)
+    @Column(table = "cliente_detalhe")
     private SexoCLiente sexo;
+
+    @Column(name = "data_nascimento", table = "cliente_detalhe")
+    private LocalDate dataNascimento;
 
     @OneToMany(mappedBy = "cliente")// lá na minha classe pedido no atributo cliente tem os meta dados para que o jpa utilize para gerar as consultas
     private List<Pedido> pedidos;
