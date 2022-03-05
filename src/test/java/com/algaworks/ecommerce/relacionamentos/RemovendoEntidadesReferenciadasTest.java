@@ -26,7 +26,7 @@ public class RemovendoEntidadesReferenciadasTest extends EntityManagerTest {
         Assert.assertNull(pedidoVerificacao);
     }
 
-    @Test(expected = RollbackException.class)
+    //@Test(expected = RollbackException.class)
     public void jogandoException(){
         Pedido pedido = entityManager.find(Pedido.class, 1);
 

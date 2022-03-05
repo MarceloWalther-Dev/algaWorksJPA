@@ -13,7 +13,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Embeddable
-public class ItemPedidoId implements Serializable {
+public class ItemPedidoId  implements Serializable {
 
     //Primary Key {
 

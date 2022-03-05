@@ -1,21 +1,40 @@
 package com.algaworks.ecommerce.conhecendoentitymanager;
 
 import com.algaworks.ecommerce.EntityManagerTest;
+import com.algaworks.ecommerce.model.Pedido;
+import com.algaworks.ecommerce.model.StatusPedido;
 import org.junit.Test;
 
 public class GerenciamentoTransacoesTest extends EntityManagerTest {
 
-    @Test
-    public void abrirFecharCancelarTransacao(){
-        //Transação é um periodo de tempo em que podemos fazer mudança no banco de dados com consistencia.
-        //abrir
-        entityManager.getTransaction().begin();
+    @Test(expected = Exception.class)
+    public void abrirFecharCancelarTransacao() {
 
-        //Cancelar uma transação
-        entityManager.getTransaction().rollback();
+        try {
+            //Transação é um periodo de tempo em que podemos fazer mudança no banco de dados com consistencia.
+            //abrir
+            entityManager.getTransaction().begin();
 
-        //fechar
-        entityManager.getTransaction().commit();
+            this.metodoDeNegocio();
 
+            //fechar
+            entityManager.getTransaction().commit();
+
+        } catch (Exception e) {
+            //Cancelar uma transação
+            entityManager.getTransaction().rollback();
+            throw e;
+        }
+
+
+    }
+
+    private void metodoDeNegocio() {
+        Pedido pedido = entityManager.find(Pedido.class, 1);
+        pedido.setStatus(StatusPedido.PAGO);
+
+        if (pedido.getPagamento() == null) {
+            throw new RuntimeException("Pedido ainda não foi pago.");
+        }
     }
 }

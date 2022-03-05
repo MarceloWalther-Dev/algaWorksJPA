@@ -21,7 +21,7 @@ public class OperacaoComTransacaoTest extends EntityManagerTest {
         entityManager.clear();
 
         Produto produtoVerificacao = entityManager.find(Produto.class, produto.getId());
-        Assert.assertEquals("KinderOvo", produtoVerificacao.getNome());
+        Assert.assertEquals("Kindle", produtoVerificacao.getNome());
 
 
     }
@@ -37,14 +37,15 @@ public class OperacaoComTransacaoTest extends EntityManagerTest {
         produto.setNome("Microfone Rode Videmic");
         produto.setDescricao("A melhor qualidade de som.");
         produto.setPreco(new BigDecimal(1000));
+
         entityManager.getTransaction().begin();
 
-        entityManager.merge(produto);
+        Produto produtoMerge = entityManager.merge(produto);
         entityManager.getTransaction().commit();
 
         entityManager.clear();
 
-        Produto produtoVerificacao = entityManager.find(Produto.class, produto.getId());
+        Produto produtoVerificacao = entityManager.find(Produto.class, produtoMerge.getId());
         Assert.assertNotNull(produtoVerificacao);
     }
 
@@ -86,14 +87,14 @@ public class OperacaoComTransacaoTest extends EntityManagerTest {
 
     @Test
     public void atualizarObjeto(){
-        Produto produto = new Produto();
+        Produto produto = entityManager.find(Produto.class, 1);
 
         produto.setNome("Kindle Paperwhite");
         produto.setDescricao("Conheça o novo kindle");
         produto.setPreco(new BigDecimal(599));
 
         //Para usar o merge é necessario preencher o produto se não ele vai deixar nulo o que não for preenchido
-        entityManager.merge(produto);
+        //entityManager.merge(produto);
         entityManager.getTransaction().begin();
         entityManager.getTransaction().commit();
 
