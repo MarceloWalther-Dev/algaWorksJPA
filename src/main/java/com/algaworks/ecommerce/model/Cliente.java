@@ -9,19 +9,13 @@ import java.util.Map;
 
 @Getter
 @Setter
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @SecondaryTable(name = "cliente_detalhe",pkJoinColumns = @PrimaryKeyJoinColumn(name = "cliente_id"))
 //Jpa vai entender que e para criar um tabela com o nome cliente detalhe com a coluna cliente_id e que ao mesmo tempo ela sera primary key e fk para a tabela cliente
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "cliente")
-public class Cliente {
-
-    @EqualsAndHashCode.Include
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+public class Cliente extends EntityBase{
 
     private String nome;
 

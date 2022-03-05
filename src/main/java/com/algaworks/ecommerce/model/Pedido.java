@@ -14,11 +14,8 @@ import java.util.List;
 @Entity
 @Table(name = "pedido")
 @EntityListeners({GerarNotaFiscalListener.class})
-public class Pedido {
+public class Pedido extends EntityBase{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "cliente_id") // o padrão dele já esse mas é bom deixar explicito
@@ -76,24 +73,5 @@ public class Pedido {
     public void aoAtualizar(){
         this.dataUltimaAtualizacao = LocalDateTime.now();
         this.calcularTotal();
-    }
-
-
-
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Pedido pedido = (Pedido) o;
-
-        return id.equals(pedido.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return id.hashCode();
     }
 }
