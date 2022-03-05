@@ -18,7 +18,7 @@ public class RelacionamentosOneToOneTest extends EntityManagerTest {
     public void verificarRelacionamento(){
         var pedido = entityManager.find(Pedido.class, 1);
         var pagamento = new PagamentoCartao();
-        pagamento.setNumero("1234");
+        pagamento.setNumeroCartao("1234");
         pagamento.setStatus(StatusPagamento.PROCESSANDO);
         pagamento.setPedido(pedido);
 

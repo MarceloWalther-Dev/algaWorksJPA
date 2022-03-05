@@ -46,7 +46,7 @@ public class Pedido extends EntityBase{
     private EnderecoEntregaPedido enderecoEntrega;
 
     @OneToOne(mappedBy = "pedido")
-    private PagamentoCartao pagamento;
+    private Pagamento pagamento;
 
     public boolean isPago(){
         return StatusPedido.PAGO.equals(status);
