@@ -20,8 +20,10 @@ import java.util.Map;
 
 public class Cliente extends EntityBase{
 
+    @Column(length = 100, nullable = false)
     private String nome;
 
+    @Column(columnDefinition = "varchar(14) not null")
     private String cpf;
 
     @ElementCollection // aqui diz que vai ser um elemento imbutido e que sera gerado outra tabela
@@ -34,7 +36,7 @@ public class Cliente extends EntityBase{
     private String primeiroNome;
 
     @Enumerated(EnumType.STRING)
-    @Column(table = "cliente_detalhe")
+    @Column(table = "cliente_detalhe", columnDefinition = "varchar(30) not null")
     private SexoCLiente sexo;
 
     @Column(name = "data_nascimento", table = "cliente_detalhe")

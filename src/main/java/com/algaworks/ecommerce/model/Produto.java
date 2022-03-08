@@ -19,11 +19,14 @@ import java.util.Set;
         indexes = {@Index(name = "idx_nome", columnList = "nome")})
 public class Produto extends EntityBase{
 
-
+    @Column(length = 100, nullable = false) // como ficaria no banco de dados, nome varchar(100) not null
     private String nome;
 
+    @Column(columnDefinition = "varchar(275) not null 'description'")
     private String descricao;
 
+                      //precision = quantidade de digitos, scale = numero de casas decimais
+    @Column(precision = 19, scale = 2)// preco decimal(10,2)
     private BigDecimal preco;
 
     @ManyToMany
@@ -36,7 +39,7 @@ public class Produto extends EntityBase{
     private Estoque estoque;
 
     //updatable = false garantimos que ele não tenha mudado o valor no update do produto
-    @Column(name = "data_criacao", updatable = false)
+    @Column(name = "data_criacao", updatable = false, nullable = false)
     private LocalDateTime dataCriacao;
 
     //insertable = false garantimos que ele não tenha valor na inserção
@@ -45,7 +48,7 @@ public class Produto extends EntityBase{
 
     @ElementCollection
     @CollectionTable(name = "produto_tag", joinColumns = @JoinColumn(name = "produto_id"))
-    @Column(name = "tag")
+    @Column(name = "tag", length = 50, nullable = false)
     private Set<String> tags;
 
     @ElementCollection
