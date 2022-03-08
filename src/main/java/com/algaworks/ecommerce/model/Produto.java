@@ -39,7 +39,7 @@ public class Produto extends EntityBase{
     private Estoque estoque;
 
     //updatable = false garantimos que ele não tenha mudado o valor no update do produto
-    @Column(name = "data_criacao", updatable = false)
+    @Column(name = "data_criacao", updatable = false, nullable = false)
     private LocalDateTime dataCriacao;
 
     //insertable = false garantimos que ele não tenha valor na inserção
@@ -48,7 +48,7 @@ public class Produto extends EntityBase{
 
     @ElementCollection
     @CollectionTable(name = "produto_tag", joinColumns = @JoinColumn(name = "produto_id"))
-    @Column(name = "tag")
+    @Column(name = "tag", length = 50, nullable = false)
     private Set<String> tags;
 
     @ElementCollection

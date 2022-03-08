@@ -19,6 +19,7 @@ public abstract class Pagamento extends EntityBase{
     @JoinColumn(name = "pedido_id")
     private Pedido pedido;
 
+    @Column(columnDefinition = "varchar(30) not null")
     @Enumerated(EnumType.STRING)
     private StatusPagamento status;
 

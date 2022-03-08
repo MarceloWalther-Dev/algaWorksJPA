@@ -13,6 +13,7 @@ import java.util.List;
         uniqueConstraints = {@UniqueConstraint(name = "nome", columnNames = {"nome"})})
 public class Categoria extends EntityBase{
 
+    @Column(length = 100, nullable = false)
     private String nome;
 
     @ManyToOne
