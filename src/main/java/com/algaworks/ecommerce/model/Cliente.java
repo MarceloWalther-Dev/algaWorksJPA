@@ -14,10 +14,15 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "cliente")
+@Table(name = "cliente",
+        uniqueConstraints = {@UniqueConstraint(name = "unq_cpf", columnNames = { "cpf" })},
+        indexes = { @Index(name = "idx_nome", columnList = "nome") }) // uniqueConstraints nada mais e que uma coluna no banco de dados que nao pode se repetir
+
 public class Cliente extends EntityBase{
 
     private String nome;
+
+    private String cpf;
 
     @ElementCollection // aqui diz que vai ser um elemento imbutido e que sera gerado outra tabela
     @CollectionTable(name = "cliente_contato", joinColumns = @JoinColumn(name = "cliente_id")) //nome da tabela sera cliente_contato, e tera uma coluna cliente_id referenciando a tabela cliente

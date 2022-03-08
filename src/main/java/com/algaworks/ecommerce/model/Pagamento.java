@@ -7,8 +7,8 @@ import javax.persistence.*;
 
 @Getter
 @Setter
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)// uma tabela por classe
-//@DiscriminatorColumn(name = "tipo_pagamento", discriminatorType = DiscriminatorType.STRING) //nome da coluna no banco, o jpa coloca um como padrao para modificar temos que ir na classe alterar o nome da tabela com a anotacao
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)// uma tabela por classe
+@DiscriminatorColumn(name = "tipo_pagamento", discriminatorType = DiscriminatorType.STRING) //nome da coluna no banco, o jpa coloca um como padrao para modificar temos que ir na classe alterar o nome da tabela com a anotacao
 //DiscriminatorValue()
 @Entity
 //@Table(name = "pagamento")
