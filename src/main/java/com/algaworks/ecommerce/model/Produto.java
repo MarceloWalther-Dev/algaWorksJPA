@@ -14,7 +14,9 @@ import java.util.Set;
 @Setter
 @EntityListeners({ GenericoListener.class })
 @Entity
-@Table(name = "produto")
+@Table(name = "produto",
+        uniqueConstraints = {@UniqueConstraint(name = "unq_nome", columnNames = {"nome"})},
+        indexes = {@Index(name = "idx_nome", columnList = "nome")})
 public class Produto extends EntityBase{
 
 

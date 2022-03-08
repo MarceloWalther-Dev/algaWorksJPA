@@ -9,7 +9,8 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "categoria")
+@Table(name = "categoria",
+        uniqueConstraints = {@UniqueConstraint(name = "nome", columnNames = {"nome"})})
 public class Categoria extends EntityBase{
 
     private String nome;
