@@ -36,8 +36,10 @@ public class Pedido extends EntityBase{
     @OneToOne(mappedBy = "pedido")
     private NotaFiscal notaFiscal;
 
+    @Column(precision = 19, scale = 2, nullable = false)
     private BigDecimal total;
 
+    @Column(length = 30, nullable = false)
     @Enumerated(EnumType.STRING)
     private StatusPedido status;
 

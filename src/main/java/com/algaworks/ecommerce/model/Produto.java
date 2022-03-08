@@ -19,11 +19,14 @@ import java.util.Set;
         indexes = {@Index(name = "idx_nome", columnList = "nome")})
 public class Produto extends EntityBase{
 
-
+    @Column(length = 100, nullable = false) // como ficaria no banco de dados, nome varchar(100) not null
     private String nome;
 
+    @Column(columnDefinition = "varchar(275) not null 'description'")
     private String descricao;
 
+                      //precision = quantidade de digitos, scale = numero de casas decimais
+    @Column(precision = 19, scale = 2)// preco decimal(10,2)
     private BigDecimal preco;
 
     @ManyToMany
