@@ -17,7 +17,7 @@ public class Categoria extends EntityBase{
     private String nome;
 
     @ManyToOne
-    @JoinColumn(name = "categoria_pai_id")
+    @JoinColumn(name = "categoria_pai_id", foreignKey = @ForeignKey(name = "fk_categoria_categoriaPai"))
     private Categoria categoriaPai;
 
     @OneToMany(mappedBy = "categoriaPai")
