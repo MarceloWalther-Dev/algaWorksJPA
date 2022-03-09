@@ -17,8 +17,9 @@ import java.util.List;
 public class Pedido extends EntityBase{
 
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "cliente_id") // o padrão dele já esse mas é bom deixar explicito
+    @ManyToOne(optional = false)//Optional ele vai fazer um joinColumn em vez de fazer um left joinColumn, mais importante na hora de construir uma query
+    @JoinColumn(name = "cliente_id", nullable = false,
+            foreignKey = @ForeignKey(name = "fk_pedido_cliente")) // fk_pedido_cliente = fk_pedido e onde vai ficar a foreign key e cliente e a referencia da tabela
     private Cliente cliente;
 
     @OneToMany(mappedBy = "pedido")

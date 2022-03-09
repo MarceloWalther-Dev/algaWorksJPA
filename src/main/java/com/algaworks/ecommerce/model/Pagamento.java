@@ -16,7 +16,7 @@ public abstract class Pagamento extends EntityBase{
 
     @MapsId
     @OneToOne(optional = false)
-    @JoinColumn(name = "pedido_id")
+    @JoinColumn(name = "pedido_id", nullable = false, foreignKey = @ForeignKey(name = "fk_pagamento_pedido"))
     private Pedido pedido;
 
     @Column(columnDefinition = "varchar(30) not null")
