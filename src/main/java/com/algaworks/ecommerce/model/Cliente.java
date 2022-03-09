@@ -9,8 +9,10 @@ import java.util.Map;
 
 @Getter
 @Setter
-@SecondaryTable(name = "cliente_detalhe",pkJoinColumns = @PrimaryKeyJoinColumn(name = "cliente_id"))
 //Jpa vai entender que e para criar um tabela com o nome cliente detalhe com a coluna cliente_id e que ao mesmo tempo ela sera primary key e fk para a tabela cliente
+@SecondaryTable(name = "cliente_detalhe",
+        pkJoinColumns = @PrimaryKeyJoinColumn(name = "cliente_id"),
+        foreignKey = @ForeignKey(name = "fk_cliente_detalhe_cliente"))
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
