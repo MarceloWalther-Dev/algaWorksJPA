@@ -11,7 +11,7 @@ import javax.persistence.*;
 @DiscriminatorColumn(name = "tipo_pagamento", discriminatorType = DiscriminatorType.STRING) //nome da coluna no banco, o jpa coloca um como padrao para modificar temos que ir na classe alterar o nome da tabela com a anotacao
 //DiscriminatorValue()
 @Entity
-//@Table(name = "pagamento")
+@Table(name = "pagamento")
 public abstract class Pagamento extends EntityBase{
 
     @MapsId

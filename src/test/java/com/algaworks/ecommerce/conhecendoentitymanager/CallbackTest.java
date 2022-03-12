@@ -15,7 +15,8 @@ public class CallbackTest extends EntityManagerTest {
     @Test
     public void acionarCallbacks(){
         var cliente = entityManager.find(Cliente.class, 1);
-        var pedido = new Pedido();
+        Pedido pedido = new Pedido();
+
 
         pedido.setCliente(cliente);
         pedido.setStatus(StatusPedido.AGUARDANDO);

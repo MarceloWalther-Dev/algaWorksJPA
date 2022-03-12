@@ -14,10 +14,10 @@
 
             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
 
-<!--            criacao de scripts de banco-->
-<!--            <property name="javax.persistence.schema-generation.create-script-source" value="META-INF/banco-de-dados/script-criacao.sql"/>-->
-<!--            remocao de scripsts de banco-->
-<!--            <property name="javax.persistence.schema-generation.create-script-source" value="META-INF/banco-de-dados/script-remocao.sql"/>-->
+<!--            criacao de scripts de banco
+           <property name="javax.persistence.schema-generation.create-script-source" value="META-INF/banco-de-dados/script-criacao.sql"/>
+            remocao de scripsts de banco
+            <property name="javax.persistence.schema-generation.create-script-source" value="META-INF/banco-de-dados/script-remocao.sql"/>-->
 
 
 
