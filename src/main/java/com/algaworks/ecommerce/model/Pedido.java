@@ -22,7 +22,7 @@ public class Pedido extends EntityBase{
             foreignKey = @ForeignKey(name = "fk_pedido_cliente")) // fk_pedido_cliente = fk_pedido e onde vai ficar a foreign key e cliente e a referencia da tabela
     private Cliente cliente;
 
-    @OneToMany(mappedBy = "pedido",cascade = CascadeType.PERSIST)// cascade = CascadeType.PERSIST
+    @OneToMany(mappedBy = "pedido",cascade = CascadeType.MERGE)// cascade = CascadeType.PERSIST
     private List<ItemPedido> itensPedido;
 
     @Column(name = "data_criacao", updatable = false, nullable = false)
@@ -59,8 +59,10 @@ public class Pedido extends EntityBase{
     private void calcularTotal(){
         if (this.itensPedido != null){
             this.total = itensPedido.stream()
-                    .map(ItemPedido::getPrecoProduto)
+                    .map(i -> new BigDecimal(i.getQuantidade()).multiply(i.getPrecoProduto()))
                     .reduce(BigDecimal.ZERO, BigDecimal::add);
+        }else{
+            total = BigDecimal.ZERO;
         }
     }
 
