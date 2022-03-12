@@ -22,7 +22,7 @@ public class Pedido extends EntityBase{
             foreignKey = @ForeignKey(name = "fk_pedido_cliente")) // fk_pedido_cliente = fk_pedido e onde vai ficar a foreign key e cliente e a referencia da tabela
     private Cliente cliente;
 
-    @OneToMany(mappedBy = "pedido")
+    @OneToMany(mappedBy = "pedido",cascade = CascadeType.PERSIST)// cascade = CascadeType.PERSIST
     private List<ItemPedido> itensPedido;
 
     @Column(name = "data_criacao", updatable = false, nullable = false)

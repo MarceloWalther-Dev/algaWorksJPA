@@ -12,8 +12,11 @@ public class EstadoECicloDeVidaTest extends EntityManagerTest {
         //Estado Transient
         Categoria categoria = new Categoria();
 
+        categoria.setNome("Eletronicos");
+
         //Estado Gerenciada
         Categoria categoriaManaged = entityManager.find(Categoria.class, 1);
+
 
         //Passando uma categoria gerenciada para o estado remove
         entityManager.remove(categoriaManaged);

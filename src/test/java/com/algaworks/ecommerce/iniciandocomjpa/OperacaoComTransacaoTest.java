@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 public class OperacaoComTransacaoTest extends EntityManagerTest {
 
@@ -37,6 +38,7 @@ public class OperacaoComTransacaoTest extends EntityManagerTest {
         produto.setNome("Microfone Rode Videmic");
         produto.setDescricao("A melhor qualidade de som.");
         produto.setPreco(new BigDecimal(1000));
+        produto.setDataCriacao(LocalDateTime.now());
 
         entityManager.getTransaction().begin();
 
@@ -57,6 +59,7 @@ public class OperacaoComTransacaoTest extends EntityManagerTest {
         produto.setNome("Camera Canon");
         produto.setDescricao("Melhore as suas fotos");
         produto.setPreco(new BigDecimal(5000));
+        produto.setDataCriacao(LocalDateTime.now());
 
         //Joga para a memoria
         entityManager.persist(produto);
@@ -116,9 +119,9 @@ public class OperacaoComTransacaoTest extends EntityManagerTest {
         //dentro da operação eu realizo a alteração do banco de dados
 
         //
-        entityManager.persist(produto);
-        entityManager.merge(produto);
-        entityManager.remove(produto);
+//        entityManager.persist(produto);
+//        entityManager.merge(produto);
+//        entityManager.remove(produto);
 
 
 
