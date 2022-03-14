@@ -12,6 +12,24 @@ import java.util.List;
 
 public class CascadeTypeMergeTest extends EntityManagerTest {
 
+
+    @Test
+    public void removerRelacaoProdutoCategoria() {
+        Produto produto = entityManager.find(Produto.class, 1);
+
+        Assert.assertFalse(produto.getCategorias().isEmpty());
+
+        entityManager.getTransaction().begin();
+        produto.getCategorias().clear();
+        entityManager.getTransaction().commit();
+
+        entityManager.clear();
+
+        Produto produtoVerificacao = entityManager.find(Produto.class, produto.getId());
+        Assert.assertTrue(produtoVerificacao.getCategorias().isEmpty());
+    }
+
+
     @Test
     public void atualizarPedidoComItens() {
         Cliente cliente = entityManager.find(Cliente.class, 1);
