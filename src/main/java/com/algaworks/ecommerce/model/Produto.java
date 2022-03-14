@@ -29,7 +29,7 @@ public class Produto extends EntityBase{
     @Column(precision = 19, scale = 2)// preco decimal(10,2)
     private BigDecimal preco;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(name = "produto_categoria",
             joinColumns = @JoinColumn(name = "produto_id", nullable = false,
                     foreignKey = @ForeignKey(name = "fk_produto_categoria_produto")),
