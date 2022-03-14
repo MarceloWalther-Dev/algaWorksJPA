@@ -5,6 +5,9 @@ import com.algaworks.ecommerce.model.*;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.List;
 
 public class CascadeTypeMergeTest extends EntityManagerTest {
@@ -70,4 +73,32 @@ public class CascadeTypeMergeTest extends EntityManagerTest {
         ItemPedido itemPedidoVerificacao = entityManager.find(ItemPedido.class, itemPedido.getId());
         Assert.assertEquals(StatusPedido.PAGO, itemPedidoVerificacao.getPedido().getStatus());
     }
+
+    @Test
+    public void atualizarProdutoComCategoria(){
+        Produto produto = new Produto();
+        produto.setId(1);
+        produto.setDataUltimaAtualizacao(LocalDateTime.now());
+        produto.setPreco(new BigDecimal(500));
+        produto.setNome("Kindle");
+        produto.setDescricao("Agora com iluminacao embutida ajustavel");
+
+        Categoria categoria = new Categoria();
+        categoria.setId(2);
+        categoria.setNome("Tablets");
+
+        produto.setCategorias(Arrays.asList(categoria));
+
+        entityManager.getTransaction().begin();
+        entityManager.merge(produto);
+        entityManager.getTransaction().commit();
+
+        entityManager.clear();
+
+        Produto produtoBanco = entityManager.find(Produto.class, produto.getId());
+
+        Assert.assertNotNull(produtoBanco);
+        Assert.assertEquals("Tablets", produto.getCategorias().get(0).getNome());
+    }
+
 }
