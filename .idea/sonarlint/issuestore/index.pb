@@ -29,8 +29,6 @@ Lsrc/test/java/com/algaworks/ecommerce/conhecendoentitymanager/FlushTest.java,e
 ^src/test/java/com/algaworks/ecommerce/conhecendoentitymanager/GerenciamentoTransacoesTest.java,9\7\97c7eea6f8feff62654b82b3448ffe68a8ffbedf
 ƒ
 Ssrc/test/java/com/algaworks/ecommerce/iniciandocomjpa/ConsultandoRegistrosTest.java,5\5\554425db191dc1f05e5f0d0671fe147305d29b68
-k
-;src/main/java/com/algaworks/ecommerce/model/EntityBase.java,b\6\b6f21c5e723141eae509926041a8af2c3439fa03
 ƒ
 Ssrc/test/java/com/algaworks/ecommerce/mapeamentoavancado/ElementCollectionTest.java,e\4\e48e36fcfa685c1365d2880e8e6358a9a7fe1175
 €
