@@ -10,4 +10,12 @@ cascate = CascadeType.**REFRESH** - _quando chamar o getRefresh vai atualizar o 
 automaticamente removeremos os itens que estao relacionado ao pedido excluido_\
 
 
--  **JPQL** _=> se referencia a entidade e nao o nome da tabela_
+- **JPQL** _=> se referencia a entidade e nao o nome da tabela_
+
+<h1>Diferenca de Query e TypeQuery</h1>
+
+**TypedQuery**<Pedido> typedQuery = _entityManager.createQuery(jpql, Pedido.class)
+Pedido pedido = typedQuery.getSingleResult();_
+
+**Query** query = _entityManager.createQuery(jpql);
+Pedido pedido2 = (Pedido) query.getSingleResult();_
