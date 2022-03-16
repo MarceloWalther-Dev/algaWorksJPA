@@ -39,8 +39,19 @@ public class BasicoJPQLTest extends EntityManagerTest {
         listaCliente.forEach(cliente -> System.out.println(cliente.getNome()));
 
         Assert.assertTrue(Cliente.class.equals(listaCliente.get(0).getClass()));
+    }
 
+    @Test
+    public void projetarObjeto(){
+        String jpql = "select p.id, p.nome from Produto p"; // [projecao =  p.id, p.nome]
 
+        TypedQuery<Object[]> typedQuery = entityManager.createQuery(jpql, Object[].class);// usamos Object[] pq sao dois atributos de diferentes tipos
+        // int e string o mais generico
+        List<Object[]> lista = typedQuery.getResultList();
+
+        lista.forEach( i -> System.out.println(i[0]+ ", "+ i[1]));
+
+        Assert.assertTrue(lista.get(0).length == 2);
     }
 
 }
