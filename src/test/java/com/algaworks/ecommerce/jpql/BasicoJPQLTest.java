@@ -1,9 +1,9 @@
 package com.algaworks.ecommerce.jpql;
 
 import com.algaworks.ecommerce.EntityManagerTest;
+import com.algaworks.ecommerce.dto.ProdutoDTO;
 import com.algaworks.ecommerce.model.Cliente;
 import com.algaworks.ecommerce.model.Pedido;
-import com.algaworks.ecommerce.model.Produto;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -13,7 +13,7 @@ import java.util.List;
 public class BasicoJPQLTest extends EntityManagerTest {
 
     @Test
-    public void buscarPorIdentificador(){
+    public void buscarPorIdentificador() {
         TypedQuery<Pedido> typedQuery = entityManager.createQuery("select p from Pedido p where p.id = 1", Pedido.class);
 
 //        List<Pedido> resultList = typedQuery.getResultList(); quando e uma lista
@@ -24,7 +24,7 @@ public class BasicoJPQLTest extends EntityManagerTest {
     }
 
     @Test
-    public void selecionarUmAtributoParaRetorno(){
+    public void selecionarUmAtributoParaRetorno() {
 
         String jpql = "select p.nome from Produto p";
         TypedQuery<String> typedQuery = entityManager.createQuery(jpql, String.class);
@@ -42,16 +42,28 @@ public class BasicoJPQLTest extends EntityManagerTest {
     }
 
     @Test
-    public void projetarObjeto(){
+    public void projetarObjeto() {
         String jpql = "select p.id, p.nome from Produto p"; // [projecao =  p.id, p.nome]
 
         TypedQuery<Object[]> typedQuery = entityManager.createQuery(jpql, Object[].class);// usamos Object[] pq sao dois atributos de diferentes tipos
         // int e string o mais generico
         List<Object[]> lista = typedQuery.getResultList();
 
-        lista.forEach( i -> System.out.println(i[0]+ ", "+ i[1]));
+        lista.forEach(i -> System.out.println(i[0] + ", " + i[1]));
 
         Assert.assertTrue(lista.get(0).length == 2);
+    }
+
+    @Test
+    public void projetarNoDTO(){
+        String jpql = "select new com.algaworks.ecommerce.dto.ProdutoDTO(id, nome) from Produto";
+
+        TypedQuery<ProdutoDTO> typedQuery = entityManager.createQuery(jpql, ProdutoDTO.class);
+        List<ProdutoDTO> produtoDTOList = typedQuery.getResultList();
+
+        Assert.assertFalse(produtoDTOList.isEmpty());
+
+        produtoDTOList.forEach( dto -> System.out.println(dto.getId() + ", "+ dto.getNome()));
     }
 
 }
