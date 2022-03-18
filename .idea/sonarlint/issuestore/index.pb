@@ -17,8 +17,6 @@ v
 Fsrc/main/java/com/algaworks/ecommerce/model/EnderecoEntregaPedido.java,0\9\09fbe34217790c5881b20a246ab9f66e1e0a66ee
 h
 8src/main/java/com/algaworks/ecommerce/model/Estoque.java,0\1\01b74b767c3abf50ca011beee6542a0fbb9bccc6
-k
-;src/main/java/com/algaworks/ecommerce/model/NotaFiscal.java,c\2\c28384952daf2c6e4a323413cb6c2785aa4a5f4b
 ‰
 Ysrc/test/java/com/algaworks/ecommerce/conhecendoentitymanager/CachePrimeiroNivelTest.java,3\2\32735f23a7971a482321d56341a53b94d7fcaeec
 ‡
