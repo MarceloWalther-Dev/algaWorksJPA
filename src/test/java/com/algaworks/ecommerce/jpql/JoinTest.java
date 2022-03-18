@@ -39,7 +39,7 @@ public class JoinTest extends EntityManagerTest {
         TypedQuery<Object[]> typedQuery = entityManager.createQuery(jpql, Object[].class);
         List<Object[]> lista = typedQuery.getResultList();
 
-        Assert.assertTrue(lista.size() == 1);
+        Assert.assertFalse(lista.isEmpty());
     }
 
 }
