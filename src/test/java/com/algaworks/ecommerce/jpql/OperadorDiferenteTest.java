@@ -13,6 +13,7 @@ public class OperadorDiferenteTest extends EntityManagerTest {
 
     @Test
     public void usarExpressaoDiferente(){
+        //<> DIFERENTE
         String jpql = "select p from Produto p where p.id <> : produtoId";
 
         TypedQuery<Produto> typedQuery = entityManager.createQuery(jpql, Produto.class);
