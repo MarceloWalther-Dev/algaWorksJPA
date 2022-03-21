@@ -17,5 +17,5 @@ automaticamente removeremos os itens que estao relacionado ao pedido excluido_\
 **TypedQuery**<Pedido> typedQuery = _entityManager.createQuery(jpql, Pedido.class)
 Pedido pedido = typedQuery.getSingleResult();_
 
-**Query** query = _entityManager.createQuery(jpql);
-Pedido pedido2 = (Pedido) query.getSingleResult();_
+**Query** query = _entityManager.createQuery(jpql);_ \
+**Pedido** pedido2 = _(Pedido) query.getSingleResult();_
