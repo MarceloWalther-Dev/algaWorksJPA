@@ -18,6 +18,7 @@ public class FuncoesDatas extends EntityManagerTest {
         //String jpql = "select current_date, current_time, current_timestamp from Pedido p";
 
         //String jpql = "select year(current_timestamp) from Pedido p";
+        //String jpql = "select p from Pedido p where p.dataCriacao < current_date";
         //String jpql = "select year(p.dataCriacao), month(p.dataCriacao), day(p.dataCriacao) from Pedido p";
         //String jpql = "select hour(p.dataCriacao), minute(p.dataCriacao), second(p.dataCriacao) from Pedido p";
         String jpql = "select hour(p.dataCriacao), minute(p.dataCriacao), second(p.dataCriacao) from Pedido p where hour(p.dataCriacao) > 7";
