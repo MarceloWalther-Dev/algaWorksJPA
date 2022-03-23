@@ -11,8 +11,6 @@ p
 @src/main/java/com/algaworks/ecommerce/model/StatusPagamento.java,9\2\92c2bdc382e03e9b85184a6363917c54bf9142d4
 z
 Jsrc/main/java/com/algaworks/ecommerce/util/IniciarUnidadePersistencia.java,6\6\66778f0db3d4324120675a754a92279ad5f3a338
-i
-9src/main/java/com/algaworks/ecommerce/model/Atributo.java,f\b\fb6f551c111220586abe6501c1d891d0e253167a
 v
 Fsrc/main/java/com/algaworks/ecommerce/model/EnderecoEntregaPedido.java,0\9\09fbe34217790c5881b20a246ab9f66e1e0a66ee
 h
