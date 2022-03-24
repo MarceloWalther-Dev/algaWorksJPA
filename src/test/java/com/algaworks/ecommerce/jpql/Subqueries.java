@@ -3,6 +3,7 @@ package com.algaworks.ecommerce.jpql;
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.Cliente;
 import com.algaworks.ecommerce.model.Pedido;
+import com.algaworks.ecommerce.model.Produto;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -39,6 +40,7 @@ public class Subqueries extends EntityManagerTest {
     }
 
 
+
     @Test
     public void pesquisarSubQueriesComIn(){
 
@@ -52,6 +54,23 @@ public class Subqueries extends EntityManagerTest {
         TypedQuery<Pedido> typedQuery = entityManager.createQuery(jpql, Pedido.class);
 
         List<Pedido> lista = typedQuery.getResultList();
+        Assert.assertFalse(lista.isEmpty());
+
+        lista.forEach(obj -> System.out.println("ID: " + obj.getId()));
+    }
+
+    @Test
+    public void pesquisarComExists(){
+
+        String jpql = "select p from Produto p where exists " +
+                " (select 1 from ItemPedido ip2 join ip2.produto p2 where p2 = p)";
+
+//        String jpql = "select p from Produto p where not exists " +
+//                " (select 1 from ItemPedido ip2 join ip2.produto p2 where p2 = p)";
+
+        TypedQuery<Produto> typedQuery = entityManager.createQuery(jpql, Produto.class);
+
+        List<Produto> lista = typedQuery.getResultList();
         Assert.assertFalse(lista.isEmpty());
 
         lista.forEach(obj -> System.out.println("ID: " + obj.getId()));
