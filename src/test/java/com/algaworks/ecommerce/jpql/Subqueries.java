@@ -76,4 +76,23 @@ public class Subqueries extends EntityManagerTest {
         lista.forEach(obj -> System.out.println("ID: " + obj.getId()));
     }
 
+    @Test
+    public void desafioDoIn(){
+        //trazer todos os pedidos que contem produto da categoria identificador numero 2
+
+        String jpql = "select p from Pedido p where p.id in " +
+                " (select p2.id from ItemPedido it " +
+                " join it.pedido p2 " +
+                " join it.produto prod " +
+                " join prod.categorias cat " +
+                " where cat.id = 2)";
+
+        TypedQuery<Pedido> typedQuery = entityManager.createQuery(jpql, Pedido.class);
+
+        List<Pedido> lista = typedQuery.getResultList();
+        Assert.assertFalse(lista.isEmpty());
+
+
+    }
+
 }
