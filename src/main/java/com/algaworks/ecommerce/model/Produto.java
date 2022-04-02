@@ -3,6 +3,7 @@ package com.algaworks.ecommerce.model;
 import com.algaworks.ecommerce.listener.GenericoListener;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -10,6 +11,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 
+@ToString
 @Getter
 @Setter
 @EntityListeners({ GenericoListener.class })

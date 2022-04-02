@@ -3,6 +3,8 @@ package com.algaworks.ecommerce.criteria;
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.Cliente;
 import com.algaworks.ecommerce.model.Pedido;
+import com.algaworks.ecommerce.model.Produto;
+import org.hibernate.Criteria;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -10,8 +12,48 @@ import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import java.util.List;
+import java.util.function.Consumer;
 
 public class BasicoCriteriaTest extends EntityManagerTest {
+
+
+    //Projecoes
+    @Test
+    public void projetarOResultado(){
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Object[]> criteriaQuery = criteriaBuilder.createQuery(Object[].class);
+        Root<Produto> root = criteriaQuery.from(Produto.class);
+
+        criteriaQuery.multiselect(root.get("id"), root.get("nome"));
+
+        TypedQuery<Object[]> typedQuery = entityManager.createQuery(criteriaQuery);
+        List<Object[]> produtos = typedQuery.getResultList();
+
+        Assert.assertNotNull(produtos);
+
+        produtos.forEach(imprimirAtributosDosObjetosComArray2Posicoes);
+
+    }
+
+
+
+    @Test
+    public void retornarTodosOsprodutos(){
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Produto> criteriaQuery = criteriaBuilder.createQuery(Produto.class);
+        Root<Produto> root = criteriaQuery.from(Produto.class);
+
+        criteriaQuery.select(root);
+
+        TypedQuery<Produto> typedQuery = entityManager.createQuery(criteriaQuery);
+
+        List<Produto> produtos = typedQuery.getResultList();
+
+        produtos.forEach(imprimirAtributoDosObjetos);
+
+        Assert.assertNotNull(produtos);
+    }
 
 
     @Test
@@ -54,5 +96,9 @@ public class BasicoCriteriaTest extends EntityManagerTest {
         Assert.assertNotNull(pedido);
     }
 
+
+        Consumer<Object> imprimirAtributoDosObjetos = o -> System.out.println(o.toString());
+
+        Consumer<Object[]> imprimirAtributosDosObjetosComArray2Posicoes = o -> System.out.println("ID - " + o[0] + " \nNome - "+ o[1]);
 
 }
