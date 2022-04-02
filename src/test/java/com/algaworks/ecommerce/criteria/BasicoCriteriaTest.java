@@ -1,10 +1,10 @@
 package com.algaworks.ecommerce.criteria;
 
 import com.algaworks.ecommerce.EntityManagerTest;
+import com.algaworks.ecommerce.dto.ProdutoDTO;
 import com.algaworks.ecommerce.model.Cliente;
 import com.algaworks.ecommerce.model.Pedido;
 import com.algaworks.ecommerce.model.Produto;
-import org.hibernate.Criteria;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -14,13 +14,36 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 public class BasicoCriteriaTest extends EntityManagerTest {
 
+
+    @Test
+    public void projetarOResultadoDTO() {
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<ProdutoDTO> criteriaQuery = criteriaBuilder.createQuery(ProdutoDTO.class);
+        Root<Produto> root = criteriaQuery.from(Produto.class);
+        // no metodo contruct do criteriaBuiler o primeiro e o dto que eu quero retornar o segundo parametro sao os daddos necessario do construtor do dto
+        criteriaQuery.select(criteriaBuilder
+                .construct(ProdutoDTO.class, root.get("id"), root.get("nome")));
+
+        TypedQuery<ProdutoDTO> typedQuery = entityManager.createQuery(criteriaQuery);
+        List<ProdutoDTO> produtos = typedQuery.getResultList();
+
+        Assert.assertNotNull(produtos);
+
+        produtos.forEach( produtoDTO -> System.out.println("ID: " + produtoDTO.getId() + "\n Nome: " + produtoDTO.getNome()));
+
+
+    }
+
+
     //Projecoes
     @Test
-    public void projetarOResultadoComTuple(){
+    public void projetarOResultadoComTuple() {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         //CriteriaQuery<Tuple> criteriaQuery = criteriaBuilder.createQuery(Tuple.class);
         CriteriaQuery<Tuple> criteriaQuery = criteriaBuilder.createTupleQuery();
@@ -35,13 +58,13 @@ public class BasicoCriteriaTest extends EntityManagerTest {
         Assert.assertNotNull(produtos);
 
         //produtos.forEach(p -> System.out.println("ID - "+ p.get(0)+ "\n Nome - "+ p.get(1)));
-        produtos.forEach(p -> System.out.println("ID - "+ p.get("id")+ "\n Nome - "+ p.get("nome")));
+        produtos.forEach(p -> System.out.println("ID - " + p.get("id") + "\n Nome - " + p.get("nome")));
 
     }
 
     //Projecoes
     @Test
-    public void projetarOResultado(){
+    public void projetarOResultado() {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Object[]> criteriaQuery = criteriaBuilder.createQuery(Object[].class);
         Root<Produto> root = criteriaQuery.from(Produto.class);
@@ -58,9 +81,8 @@ public class BasicoCriteriaTest extends EntityManagerTest {
     }
 
 
-
     @Test
-    public void retornarTodosOsprodutos(){
+    public void retornarTodosOsprodutos() {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Produto> criteriaQuery = criteriaBuilder.createQuery(Produto.class);
         Root<Produto> root = criteriaQuery.from(Produto.class);
@@ -78,7 +100,7 @@ public class BasicoCriteriaTest extends EntityManagerTest {
 
 
     @Test
-    public void selecionarUmAtributoParaRetorno(){
+    public void selecionarUmAtributoParaRetorno() {
         //para criar a query precisamos do criteria builder
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         //criando a query
@@ -96,12 +118,11 @@ public class BasicoCriteriaTest extends EntityManagerTest {
         Assert.assertNotNull(cliente);
 
 
-
     }
 
 
     @Test
-    public void buscarPorIdentificador(){
+    public void buscarPorIdentificador() {
         //String jpql = "select p from Pedido p where p.id = 1";
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
@@ -118,8 +139,12 @@ public class BasicoCriteriaTest extends EntityManagerTest {
     }
 
 
-        Consumer<Object> imprimirAtributoDosObjetos = o -> System.out.println(o.toString());
+    Consumer<Object> imprimirAtributoDosObjetos = o -> System.out.println(o.toString());
 
-        Consumer<Object[]> imprimirAtributosDosObjetosComArray2Posicoes = o -> System.out.println("ID - " + o[0] + " \nNome - "+ o[1]);
+    Consumer<Object[]> imprimirAtributosDosObjetosComArray2Posicoes = o -> System.out.println("ID - " + o[0] + " \nNome - " + o[1]);
+
+    Consumer<ProdutoDTO> imprimirAtributoDoProdutoDTO = produtoDTO -> System.out.println();
+
+
 
 }
