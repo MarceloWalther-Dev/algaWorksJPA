@@ -8,6 +8,7 @@ import org.hibernate.Criteria;
 import org.junit.Assert;
 import org.junit.Test;
 
+import javax.persistence.Tuple;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -17,6 +18,26 @@ import java.util.function.Consumer;
 
 public class BasicoCriteriaTest extends EntityManagerTest {
 
+    //Projecoes
+    @Test
+    public void projetarOResultadoComTuple(){
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        //CriteriaQuery<Tuple> criteriaQuery = criteriaBuilder.createQuery(Tuple.class);
+        CriteriaQuery<Tuple> criteriaQuery = criteriaBuilder.createTupleQuery();
+        Root<Produto> root = criteriaQuery.from(Produto.class);
+
+        //criteriaQuery.multiselect(root.get("id"), root.get("nome"));
+        criteriaQuery.select(criteriaBuilder.tuple(root.get("id").alias("id"), root.get("nome").alias("nome")));
+
+        TypedQuery<Tuple> typedQuery = entityManager.createQuery(criteriaQuery);
+        List<Tuple> produtos = typedQuery.getResultList();
+
+        Assert.assertNotNull(produtos);
+
+        //produtos.forEach(p -> System.out.println("ID - "+ p.get(0)+ "\n Nome - "+ p.get(1)));
+        produtos.forEach(p -> System.out.println("ID - "+ p.get("id")+ "\n Nome - "+ p.get("nome")));
+
+    }
 
     //Projecoes
     @Test
