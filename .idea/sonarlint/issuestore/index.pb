@@ -7,8 +7,6 @@ Dsrc/main/java/com/algaworks/ecommerce/listener/GenericoListener.java,1\0\104ec
 ^src/test/java/com/algaworks/ecommerce/relacionamentos/RemovendoEntidadesReferenciadasTest.java,5\f\5f5d86a8c14d3ffb560a372302656e1eef18cac2
 †
 Vsrc/test/java/com/algaworks/ecommerce/relacionamentos/RelacionamentosOneToOneTest.java,0\e\0edda5d0f4b825b011d4029a9ed8b2e38bb03533
-p
-@src/main/java/com/algaworks/ecommerce/model/StatusPagamento.java,9\2\92c2bdc382e03e9b85184a6363917c54bf9142d4
 z
 Jsrc/main/java/com/algaworks/ecommerce/util/IniciarUnidadePersistencia.java,6\6\66778f0db3d4324120675a754a92279ad5f3a338
 v
