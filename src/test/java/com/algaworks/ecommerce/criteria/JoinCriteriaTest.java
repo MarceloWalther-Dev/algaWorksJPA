@@ -6,15 +6,34 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Join;
-import javax.persistence.criteria.Root;
+import javax.persistence.criteria.*;
 import java.util.List;
 import java.util.function.Consumer;
 
 public class JoinCriteriaTest extends EntityManagerTest {
 
+
+    //LEFT OUTER JOIN
+    @Test
+    public void fazerLeftOuterJoin() {
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class);
+        Root<Pedido> root = criteriaQuery.from(Pedido.class);
+        //podemos so dizer qual o tipo de join
+        Join<Pedido, Pagamento> joinPedidoPagamento = root.join("pagamento", JoinType.LEFT);
+
+        criteriaQuery.select(root);
+
+        TypedQuery<Pedido> typedQuery = entityManager.createQuery(criteriaQuery);
+
+        List<Pedido> pedidoList = typedQuery.getResultList();
+
+        Assert.assertFalse(pedidoList.isEmpty());
+
+        pedidoList.forEach(pedido -> System.out.println(pedido.getPagamento().getStatus()));
+    }
+
+    //ON
     @Test
     public void fazerJoinON() {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
@@ -37,6 +56,7 @@ public class JoinCriteriaTest extends EntityManagerTest {
         pedidoList.forEach(pedido -> System.out.println(pedido.getPagamento().getStatus()));
     }
 
+    //JOIN
     @Test
     public void fazerJoin() {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
