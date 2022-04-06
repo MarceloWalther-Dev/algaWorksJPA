@@ -12,6 +12,60 @@ import java.util.function.Consumer;
 
 public class JoinCriteriaTest extends EntityManagerTest {
 
+    //Desafio buscar pedidos com produtos especificos ex: produto com id = 1
+    @Test
+    public void buscarPedidosComProdutoEspecifico(){
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class);
+        Root<Pedido> root = criteriaQuery.from(Pedido.class);
+        Join<Pedido, ItemPedido> joinPedidoItemPedido = root.join("itensPedido").join("produto");
+
+        criteriaQuery.select(root);
+        criteriaQuery.where(criteriaBuilder.equal(joinPedidoItemPedido.get("id"),1));
+        //root.fetch("itensPedido",JoinType.INNER);
+
+        TypedQuery<Pedido> typedQuery = entityManager.createQuery(criteriaQuery);
+        List<Pedido> pedido = typedQuery.getResultList();
+
+        Assert.assertNotNull(pedido);
+
+        //pedido.forEach(p -> p.getItensPedido().forEach(itemPedido -> System.out.println(itemPedido.getProduto().getNome())));
+
+
+    }
+
+
+    //JOIN FETCH
+    @Test
+    public void fazerJoinFetch() {
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class);
+        Root<Pedido> root = criteriaQuery.from(Pedido.class);
+        Join<Pedido,ItemPedido> joinPedidoItemPedido = root.join("itensPedido");
+        //Join<ItemPedido, Produto> joinItemPedidoProduto = joinPedidoItemPedido.join("produto");
+
+        root.fetch("pagamento", JoinType.LEFT);
+        root.fetch("notaFiscal", JoinType.LEFT);
+        root.fetch("itensPedido", JoinType.LEFT);
+        root.fetch("cliente");
+
+        criteriaQuery.select(root);
+
+        TypedQuery<Pedido> typedQuery = entityManager.createQuery(criteriaQuery);
+
+        List<Pedido> pedidoList = typedQuery.getResultList();
+
+        Assert.assertFalse(pedidoList.isEmpty());
+
+        pedidoList.forEach(pedido -> System.out.println("Nome do cliente: "+pedido.getCliente().getNome() +"\n Sexo : "
+                + pedido.getCliente().getSexo()));
+
+
+
+    }
+
+
+
 
     //LEFT OUTER JOIN
     @Test
