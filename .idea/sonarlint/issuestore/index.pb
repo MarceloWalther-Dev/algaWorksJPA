@@ -9,8 +9,6 @@ Dsrc/main/java/com/algaworks/ecommerce/listener/GenericoListener.java,1\0\104ec
 Vsrc/test/java/com/algaworks/ecommerce/relacionamentos/RelacionamentosOneToOneTest.java,0\e\0edda5d0f4b825b011d4029a9ed8b2e38bb03533
 z
 Jsrc/main/java/com/algaworks/ecommerce/util/IniciarUnidadePersistencia.java,6\6\66778f0db3d4324120675a754a92279ad5f3a338
-v
-Fsrc/main/java/com/algaworks/ecommerce/model/EnderecoEntregaPedido.java,0\9\09fbe34217790c5881b20a246ab9f66e1e0a66ee
 h
 8src/main/java/com/algaworks/ecommerce/model/Estoque.java,0\1\01b74b767c3abf50ca011beee6542a0fbb9bccc6
 ‰
