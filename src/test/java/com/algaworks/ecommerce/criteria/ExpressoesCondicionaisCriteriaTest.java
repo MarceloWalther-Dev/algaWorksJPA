@@ -21,6 +21,29 @@ import java.util.List;
 
 public class ExpressoesCondicionaisCriteriaTest extends EntityManagerTest {
 
+
+    @Test
+    public void usarBetween(){
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class);
+        Root<Pedido> root = criteriaQuery.from(Pedido.class);
+
+        criteriaQuery.select(root);
+
+        criteriaQuery.where(
+                criteriaBuilder.between(root.get(Pedido_.total), new BigDecimal(499), new BigDecimal(800)),
+                criteriaBuilder.between(root.get(Pedido_.dataCriacao),LocalDateTime.now().minusDays(5), LocalDateTime.now())
+        );
+
+
+        TypedQuery<Pedido> typedQuery = entityManager.createQuery(criteriaQuery);
+        List<Pedido> resultList = typedQuery.getResultList();
+        Assert.assertNotNull(resultList);
+
+        resultList.forEach(p -> System.out.println(String.format("*********\nID : %d \nTotal : %s  \nData : %s", p.getId(),p.getTotal(), p.getDataCriacao())));
+    }
+
+
     @Test
     public void desafioTrazerDatas(){
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
@@ -30,8 +53,8 @@ public class ExpressoesCondicionaisCriteriaTest extends EntityManagerTest {
         criteriaQuery.select(root);
 
         criteriaQuery.where(
-                criteriaBuilder.lessThan(root.get(Pedido_.dataCriacao), LocalDateTime.now()),
-                criteriaBuilder.greaterThan(root.get(Pedido_.dataCriacao), LocalDateTime.of(LocalDate.of(2022,04,05), LocalTime.now()))
+                criteriaBuilder.lessThan(root.get(Pedido_.dataCriacao), LocalDateTime.now().minusDays(3))
+                //criteriaBuilder.greaterThan(root.get(Pedido_.dataCriacao), LocalDateTime.of(LocalDate.of(2022,04,05), LocalTime.now()))
         );
 
         TypedQuery<Pedido> typedQuery = entityManager.createQuery(criteriaQuery);
