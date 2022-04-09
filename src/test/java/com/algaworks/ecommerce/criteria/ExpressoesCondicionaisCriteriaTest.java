@@ -1,10 +1,8 @@
 package com.algaworks.ecommerce.criteria;
 
 import com.algaworks.ecommerce.EntityManagerTest;
-import com.algaworks.ecommerce.model.Cliente;
-import com.algaworks.ecommerce.model.Cliente_;
-import com.algaworks.ecommerce.model.Produto;
-import com.algaworks.ecommerce.model.Produto_;
+import com.algaworks.ecommerce.model.*;
+import org.hibernate.query.criteria.internal.expression.function.CurrentDateFunction;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -12,9 +10,78 @@ import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import java.math.BigDecimal;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.temporal.ChronoField;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 public class ExpressoesCondicionaisCriteriaTest extends EntityManagerTest {
+
+    @Test
+    public void desafioTrazerDatas(){
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class);
+        Root<Pedido> root = criteriaQuery.from(Pedido.class);
+
+        criteriaQuery.select(root);
+
+        criteriaQuery.where(
+                criteriaBuilder.lessThan(root.get(Pedido_.dataCriacao), LocalDateTime.now()),
+                criteriaBuilder.greaterThan(root.get(Pedido_.dataCriacao), LocalDateTime.of(LocalDate.of(2022,04,05), LocalTime.now()))
+        );
+
+        TypedQuery<Pedido> typedQuery = entityManager.createQuery(criteriaQuery);
+        List<Pedido> resultList = typedQuery.getResultList();
+
+        Assert.assertNotNull(resultList);
+
+        resultList.forEach(pedido -> System.out.println(pedido.getStatus()));
+    }
+
+
+    @Test
+    public void usarMaiorMenor(){
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Produto> criteriaQuery = criteriaBuilder.createQuery(Produto.class);
+        Root<Produto> root = criteriaQuery.from(Produto.class);
+
+        criteriaQuery.select(root);
+
+        //greaterThan = Maior que
+        criteriaQuery.where(criteriaBuilder.greaterThan(root.get(Produto_.preco), new BigDecimal(799)));
+
+        //greaterThanOrEqualTo = Maior que ou igual a
+        criteriaQuery.where(criteriaBuilder.greaterThanOrEqualTo(root.get(Produto_.preco), new BigDecimal(799)));
+
+        //lessThan = menor que
+        criteriaQuery.where(criteriaBuilder.lessThan(root.get(Produto_.preco), new BigDecimal(799)));
+
+        //lessThanOrEqualTo = menor que ou igual a
+        criteriaQuery.where(criteriaBuilder.lessThanOrEqualTo(root.get(Produto_.preco), new BigDecimal(799)));
+
+        //Utilizando o AND
+        criteriaQuery.where(
+                criteriaBuilder.greaterThanOrEqualTo(root.get(Produto_.preco), new BigDecimal(799)),
+                //AND
+                criteriaBuilder.lessThanOrEqualTo(root.get(Produto_.preco), new BigDecimal(3500)));
+
+
+
+
+        TypedQuery<Produto> typedQuery = entityManager.createQuery(criteriaQuery);
+        List<Produto> resultList = typedQuery.getResultList();
+        Assert.assertNotNull(resultList);
+
+        resultList.forEach(p -> System.out.println(String.format("*********\nID : %d \nNome : %s \nPreço : %s ", p.getId(),p.getNome(),p.getPreco())));
+        System.out.println("*********");
+    }
+
+
+
 
 
     @Test
