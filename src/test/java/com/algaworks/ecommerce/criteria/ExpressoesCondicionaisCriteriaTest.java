@@ -2,7 +2,6 @@ package com.algaworks.ecommerce.criteria;
 
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.*;
-import org.hibernate.query.criteria.internal.expression.function.CurrentDateFunction;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -11,19 +10,60 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.math.BigDecimal;
-import java.time.Instant;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.temporal.ChronoField;
-import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 public class ExpressoesCondicionaisCriteriaTest extends EntityManagerTest {
 
 
     @Test
-    public void usandoDiferente(){
+    public void usarOperadoresLogicos(){
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class);
+        Root<Pedido> root = criteriaQuery.from(Pedido.class);
+
+        criteriaQuery.select(root);
+
+        //A equivalencia da criteria para jpql
+        //select p from Pedido p where (p.total > 499 and p.status = 'PAGO') and p.dataCriacao > ?
+        criteriaQuery.where(
+                criteriaBuilder.and(
+                    criteriaBuilder.greaterThan(root.get(Pedido_.total), new BigDecimal(499)),
+                    criteriaBuilder.equal(root.get(Pedido_.status), StatusPedido.PAGO)
+                ), criteriaBuilder.greaterThan(
+                        root.get(Pedido_.dataCriacao), LocalDateTime.now().minusDays(5)
+                )
+        );
+        //A equivalencia da criteria para jpql
+        //select p from Pedido p where (p.status = 'AGUARDANDO' or p.status = 'PAGO') and p.total > 499 and p.total < 3500;
+        criteriaQuery.where(
+                criteriaBuilder.or(
+                        criteriaBuilder.equal(root.get(Pedido_.status), StatusPedido.AGUARDANDO),
+                        criteriaBuilder.equal(root.get(Pedido_.status), StatusPedido.PAGO)
+                ),
+                //AND
+                criteriaBuilder.and(
+                    criteriaBuilder.greaterThan(root.get(Pedido_.total), new BigDecimal(499)),
+                    criteriaBuilder.lessThan(root.get(Pedido_.total), new BigDecimal(3500))
+                )
+        );
+
+        TypedQuery<Pedido> typedQuery = entityManager.createQuery(criteriaQuery);
+        List<Pedido> resultList = typedQuery.getResultList();
+
+        Assert.assertNotNull(resultList);
+
+        resultList.forEach(pedido -> System.out.println(String.format("***** \nID: %d  \nTotal : %s ", pedido.getId(), pedido.getTotal())));
+        System.out.println("*****");
+
+    }
+
+
+
+
+
+    @Test
+    public void usandoDiferente() {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class);
         Root<Pedido> root = criteriaQuery.from(Pedido.class);
@@ -38,13 +78,13 @@ public class ExpressoesCondicionaisCriteriaTest extends EntityManagerTest {
         List<Pedido> resultList = typedQuery.getResultList();
         Assert.assertNotNull(resultList);
 
-        resultList.forEach( pedido -> System.out.println(String.format("***** \nID: %d  \nTotal : %s ", pedido.getId(), pedido.getTotal())));
+        resultList.forEach(pedido -> System.out.println(String.format("***** \nID: %d  \nTotal : %s ", pedido.getId(), pedido.getTotal())));
         System.out.println("*****");
     }
 
 
     @Test
-    public void usarBetween(){
+    public void usarBetween() {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class);
         Root<Pedido> root = criteriaQuery.from(Pedido.class);
@@ -53,7 +93,7 @@ public class ExpressoesCondicionaisCriteriaTest extends EntityManagerTest {
 
         criteriaQuery.where(
                 criteriaBuilder.between(root.get(Pedido_.total), new BigDecimal(499), new BigDecimal(800)),
-                criteriaBuilder.between(root.get(Pedido_.dataCriacao),LocalDateTime.now().minusDays(5), LocalDateTime.now())
+                criteriaBuilder.between(root.get(Pedido_.dataCriacao), LocalDateTime.now().minusDays(5), LocalDateTime.now())
         );
 
 
@@ -61,12 +101,12 @@ public class ExpressoesCondicionaisCriteriaTest extends EntityManagerTest {
         List<Pedido> resultList = typedQuery.getResultList();
         Assert.assertNotNull(resultList);
 
-        resultList.forEach(p -> System.out.println(String.format("*********\nID : %d \nTotal : %s  \nData : %s", p.getId(),p.getTotal(), p.getDataCriacao())));
+        resultList.forEach(p -> System.out.println(String.format("*********\nID : %d \nTotal : %s  \nData : %s", p.getId(), p.getTotal(), p.getDataCriacao())));
     }
 
 
     @Test
-    public void desafioTrazerDatas(){
+    public void desafioTrazerDatas() {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class);
         Root<Pedido> root = criteriaQuery.from(Pedido.class);
@@ -88,7 +128,7 @@ public class ExpressoesCondicionaisCriteriaTest extends EntityManagerTest {
 
 
     @Test
-    public void usarMaiorMenor(){
+    public void usarMaiorMenor() {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Produto> criteriaQuery = criteriaBuilder.createQuery(Produto.class);
         Root<Produto> root = criteriaQuery.from(Produto.class);
@@ -114,22 +154,17 @@ public class ExpressoesCondicionaisCriteriaTest extends EntityManagerTest {
                 criteriaBuilder.lessThanOrEqualTo(root.get(Produto_.preco), new BigDecimal(3500)));
 
 
-
-
         TypedQuery<Produto> typedQuery = entityManager.createQuery(criteriaQuery);
         List<Produto> resultList = typedQuery.getResultList();
         Assert.assertNotNull(resultList);
 
-        resultList.forEach(p -> System.out.println(String.format("*********\nID : %d \nNome : %s \nPreço : %s ", p.getId(),p.getNome(),p.getPreco())));
+        resultList.forEach(p -> System.out.println(String.format("*********\nID : %d \nNome : %s \nPreço : %s ", p.getId(), p.getNome(), p.getPreco())));
         System.out.println("*********");
     }
 
 
-
-
-
     @Test
-    public void usarIsEmpty(){
+    public void usarIsEmpty() {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Produto> criteriaQuery = criteriaBuilder.createQuery(Produto.class);
         Root<Produto> root = criteriaQuery.from(Produto.class);
@@ -144,13 +179,13 @@ public class ExpressoesCondicionaisCriteriaTest extends EntityManagerTest {
 
         Assert.assertNotNull(resultList);
 
-        resultList.forEach( p -> System.out.println(p.getNome()));
+        resultList.forEach(p -> System.out.println(p.getNome()));
 
     }
 
 
     @Test
-    public void usarIsNull(){
+    public void usarIsNull() {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Produto> criteriaQuery = criteriaBuilder.createQuery(Produto.class);
         Root<Produto> root = criteriaQuery.from(Produto.class);
@@ -170,12 +205,12 @@ public class ExpressoesCondicionaisCriteriaTest extends EntityManagerTest {
 
         Assert.assertNotNull(resultList);
 
-        resultList.forEach( p -> System.out.println(p.getNome()));
+        resultList.forEach(p -> System.out.println(p.getNome()));
 
     }
 
     @Test
-    public void usarExpressaoCondicionalLike(){
+    public void usarExpressaoCondicionalLike() {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Cliente> criteriaQuery = criteriaBuilder.createQuery(Cliente.class);
         Root<Cliente> root = criteriaQuery.from(Cliente.class);
