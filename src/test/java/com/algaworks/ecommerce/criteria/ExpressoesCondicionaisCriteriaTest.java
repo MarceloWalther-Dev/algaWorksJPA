@@ -23,6 +23,27 @@ public class ExpressoesCondicionaisCriteriaTest extends EntityManagerTest {
 
 
     @Test
+    public void usandoDiferente(){
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class);
+        Root<Pedido> root = criteriaQuery.from(Pedido.class);
+
+        criteriaQuery.select(root);
+
+        criteriaQuery.where(
+                criteriaBuilder.notEqual(root.get(Pedido_.total), new BigDecimal(499))
+        );
+
+        TypedQuery<Pedido> typedQuery = entityManager.createQuery(criteriaQuery);
+        List<Pedido> resultList = typedQuery.getResultList();
+        Assert.assertNotNull(resultList);
+
+        resultList.forEach( pedido -> System.out.println(String.format("***** \nID: %d  \nTotal : %s ", pedido.getId(), pedido.getTotal())));
+        System.out.println("*****");
+    }
+
+
+    @Test
     public void usarBetween(){
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class);
