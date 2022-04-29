@@ -3,6 +3,7 @@ package com.algaworks.ecommerce.model;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
@@ -22,9 +23,13 @@ import java.util.Map;
 
 public class Cliente extends EntityBase{
 
+    @NotBlank
     @Column(length = 100, nullable = false)
     private String nome;
 
+
+    @NotNull
+    @Pattern(regexp = "(^\\d{3}\\x2E\\d{3}\\x2E\\d{3}\\x2D\\d{2}$)")
     @Column(columnDefinition = "varchar(14) not null")
     private String cpf;
 

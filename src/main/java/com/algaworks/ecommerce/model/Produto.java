@@ -6,6 +6,9 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Positive;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -22,6 +25,7 @@ import java.util.Set;
         indexes = {@Index(name = "idx_nome", columnList = "nome")})
 public class Produto extends EntityBase{
 
+    @NotBlank
     @Column(length = 100, nullable = false) // como ficaria no banco de dados, nome varchar(100) not null
     private String nome;
 
@@ -30,6 +34,7 @@ public class Produto extends EntityBase{
 
                       //precision = quantidade de digitos, scale = numero de casas decimais
     @Column(precision = 19, scale = 2)// preco decimal(10,2)
+    @Positive
     private BigDecimal preco;
 
     @ManyToMany(cascade = CascadeType.MERGE)
@@ -43,13 +48,16 @@ public class Produto extends EntityBase{
     @OneToOne(mappedBy = "produto")
     private Estoque estoque;
 
+
     //@Lob posso usar para textos grandes pois string vai somente ate varchar(255)
     //updatable = false garantimos que ele não tenha mudado o valor no update do produto
     @Column(name = "data_criacao", updatable = false, nullable = false)
+    @PastOrPresent
     private LocalDateTime dataCriacao;
 
     //insertable = false garantimos que ele não tenha valor na inserção
     @Column(name = "data_ultima_atualizacao", insertable = false)
+    @PastOrPresent
     private LocalDateTime dataUltimaAtualizacao;
 
     @ElementCollection
