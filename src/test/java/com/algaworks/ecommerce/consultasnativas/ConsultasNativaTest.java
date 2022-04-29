@@ -51,4 +51,16 @@ public class ConsultasNativaTest extends EntityManagerTest {
     }
 
 
+    @Test
+    public void usandoSQLResultSetMapping(){
+        String sql = "select p.* from produto p where p.id = :id";
+        Query query = entityManager.createNativeQuery(sql, "produto.Produto");
+        query.setParameter("id", 1);
+
+        List<Produto> listProduto = query.getResultList();
+
+        listProduto.forEach( p -> System.out.println(String.format("Produto => ID: %s, Nome: %s", p.getId(), p.getNome())));
+    }
+
+
 }

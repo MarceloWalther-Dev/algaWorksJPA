@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 
+@SqlResultSetMapping(name = "produto.Produto", entities = {@EntityResult(entityClass = Produto.class)})
 @ToString
 @Getter
 @Setter
