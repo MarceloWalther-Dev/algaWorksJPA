@@ -19,6 +19,30 @@ import java.util.function.Function;
 public class BasicoCriteriaTest extends EntityManagerTest {
 
 
+
+    @Test
+    public void paginacaoResultados(){
+
+        //Explicação da aula está na paginação do jpql
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Categoria> criteriaQuery = criteriaBuilder.createQuery(Categoria.class);
+        Root<Categoria> root = criteriaQuery.from(Categoria.class);
+
+        criteriaQuery.select(root);
+
+        TypedQuery<Categoria> typedQuery = entityManager.createQuery(criteriaQuery);
+
+        typedQuery.setFirstResult(1);
+        typedQuery.setMaxResults(4);
+
+        List<Categoria> resultList = typedQuery.getResultList();
+        Assert.assertNotNull(resultList);
+
+        resultList.forEach(categoria -> System.out.println(categoria.getId() + " - " + categoria.getNome()));
+
+    }
+
+
     @Test
     public void ordenandoResultados(){
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
