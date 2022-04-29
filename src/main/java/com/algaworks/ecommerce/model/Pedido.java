@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -19,29 +20,38 @@ import java.util.List;
 public class Pedido extends EntityBase{
 
 
+    @NotNull
     @ManyToOne(optional = false)//Optional ele vai fazer um joinColumn em vez de fazer um left joinColumn, mais importante na hora de construir uma query
     @JoinColumn(name = "cliente_id", nullable = false,
             foreignKey = @ForeignKey(name = "fk_pedido_cliente")) // fk_pedido_cliente = fk_pedido e onde vai ficar a foreign key e cliente e a referencia da tabela
     private Cliente cliente;
 
+    @NotEmpty
     @OneToMany(mappedBy = "pedido",cascade = CascadeType.MERGE)// cascade = CascadeType.PERSIST
     private List<ItemPedido> itensPedido;
 
+    @PastOrPresent
     @Column(name = "data_criacao", updatable = false, nullable = false)
     private LocalDateTime dataCriacao;
 
+    @PastOrPresent
     @Column(name = "data_ultima_atualizacao", insertable = false)
     private LocalDateTime dataUltimaAtualizacao;
 
+    @PastOrPresent
     @Column(name = "data_conclusao")
     private LocalDateTime dataConclusao;
+
 
     @OneToOne(mappedBy = "pedido")
     private NotaFiscal notaFiscal;
 
+    @NotNull
+    @Positive
     @Column(precision = 19, scale = 2, nullable = false)
     private BigDecimal total;
 
+    @NotNull
     @Column(length = 30, nullable = false)
     @Enumerated(EnumType.STRING)
     private StatusPedido status;
