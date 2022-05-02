@@ -1,12 +1,14 @@
 package com.algaworks.ecommerce.model;
 
 import com.algaworks.ecommerce.listener.GenericoListener;
+import com.algaworks.ecommerce.model.converter.BooleanToSimNaoConverter;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Positive;
 import java.math.BigDecimal;
@@ -73,4 +75,9 @@ public class Produto extends EntityBase{
 
     @Lob
     private byte[] foto;
+
+    @Convert(converter = BooleanToSimNaoConverter.class)
+    @NotNull
+    @Column(length = 3, nullable = false)
+    private Boolean ativo = Boolean.FALSE;
 }
