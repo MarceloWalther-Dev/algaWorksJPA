@@ -39,10 +39,10 @@ public class CacheTest {
         System.out.println("Removendo pedido 1 do cache");
 
         //remove somente pedido com id 1 do cache
-        //cache.evict(Pedido.class, 1);
+        cache.evict(Pedido.class, 1);
 
         //Remove todas as instancias do cache da entidade pedido
-        cache.evict(Pedido.class);
+        //cache.evict(Pedido.class);
 
         //remove todas as instancias de todas as classes, ex: Produto, Pedido, Pagamento, CLiente ... remove tudo
         //cache.evictAll();
