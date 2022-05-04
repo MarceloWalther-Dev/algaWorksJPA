@@ -1,16 +1,39 @@
 package com.algaworks.ecommerce.detalhesimportante;
 
 import com.algaworks.ecommerce.EntityManagerTest;
+import com.algaworks.ecommerce.model.Cliente;
 import com.algaworks.ecommerce.model.Pedido;
 import org.junit.Assert;
 import org.junit.Test;
 
 import javax.persistence.EntityGraph;
+import javax.persistence.Subgraph;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class EntityGraphTest extends EntityManagerTest {
+
+
+    @Test
+    public void buscarAtributosEssenciaisDePedidoUsandoSubGraph(){
+
+        EntityGraph<Pedido> entityGraph = entityManager.createEntityGraph(Pedido.class);
+        entityGraph.addAttributeNodes("dataCriacao", "status", "total");
+
+        Subgraph<Cliente> subgraphCliente = entityGraph.addSubgraph("cliente", Cliente.class);
+        subgraphCliente.addAttributeNodes("nome", "cpf");
+
+        List<Pedido> list = entityManager.createQuery("select p from Pedido p")
+                .setHint("javax.persistence.loadgraph", entityGraph)
+                .getResultList();
+
+        Assert.assertNotNull(list);
+
+    }
+
+
+
 
     @Test
     public void buscarAtributosEssenciaisDePedido(){
