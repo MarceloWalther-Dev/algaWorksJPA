@@ -20,8 +20,6 @@ Pedido pedido = typedQuery.getSingleResult();_
 **Query** query = _entityManager.createQuery(jpql);_ \
 **Pedido** pedido2 = _(Pedido) query.getSingleResult();_
 
-
-
-#EntityGraph
+# EntityGraph
 _**Você especifica FETCHcomo sua estratégia importando javax.persistence.fetchgraphno arquivo que contém a entidade. 
 Nesse caso, todos os atributos especificados em seu gráfico de entidade serão tratados como FetchType.EAGER, e todos os atributos não especificados serão tratados como FetchType.LAZY. Por outro lado, se você especificar LOADcomo sua estratégia importando javax.persistence.loadgraph, todos os atributos especificados no gráfico de entidade também serão, FetchType.EAGERmas os atributos não especificados usarão seu tipo especificado ou padrão se a entidade não especificar nada.**_
