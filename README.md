@@ -22,4 +22,21 @@ Pedido pedido = typedQuery.getSingleResult();_
 
 # EntityGraph
 _**Você especifica FETCHcomo sua estratégia importando javax.persistence.fetchgraphno arquivo que contém a entidade. 
-Nesse caso, todos os atributos especificados em seu gráfico de entidade serão tratados como FetchType.EAGER, e todos os atributos não especificados serão tratados como FetchType.LAZY. Por outro lado, se você especificar LOADcomo sua estratégia importando javax.persistence.loadgraph, todos os atributos especificados no gráfico de entidade também serão, FetchType.EAGERmas os atributos não especificados usarão seu tipo especificado ou padrão se a entidade não especificar nada.**_
+Nesse caso, todos os atributos especificados em seu gráfico de entidade serão tratados como FetchType.EAGER, 
+e todos os atributos não especificados serão tratados como FetchType.LAZY. Por outro lado, se você especificar LOAD 
+como sua estratégia importando javax.persistence.loadgraph, todos os atributos especificados no gráfico de entidade também serão, 
+FetchType.EAGERmas os atributos não especificados usarão seu tipo especificado ou padrão se a entidade não especificar nada.**_
+
+
+# Cache de segundo nivel
+**_Colocamos a propriedade no persistence <property name="javax.persistence.sharedCache.mode" value="ALL"/>
+essa propriedade nos permite configurar o cache de segundo nivel.
+podemos tbm usar a  <persistence-unit name="Ecommerce-PU">
+<shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>_**
+
+**ALL -> cache de segundo nivel para todas as entidades\
+UNSPECIFIED -> default, significa que quem vai decidir e o hybernate no caso nao vai fazer o cache, traducao e nao especificado\
+NONE -> e para nao colocar nenhuma entidade no cache\
+DISABLE_SELECTIVE -> e para cachear todas as unidades, porem as que tiverem anotacao @Cacheable(false) nao e para cachear\
+ENABLE_SELECTIVE -> so ira cachear as entidades que estiverem com a anotacao @Cacheable pois por default ela ja e true**
+
