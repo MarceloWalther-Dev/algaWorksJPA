@@ -6,10 +6,9 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import javax.persistence.Cache;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.persistence.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CacheTest {
 
@@ -24,6 +23,37 @@ public class CacheTest {
     public static void tearDownAfterClass(){
         entityManagerFactory.close();
     }
+
+
+    @Test
+    public void controlarCacheDinamicamente(){
+
+        Cache cache = entityManagerFactory.getCache();
+
+        System.out.println("Buscando todos os pedidos ....................................");
+        EntityManager entityManager1 = entityManagerFactory.createEntityManager();
+
+        //podemos setar diretamente no entity manager a forma que ele vai se comportar com o cache de segundo nivel
+        //entityManager1.setProperty("javax.persistence.cache.storeMode", CacheStoreMode.BYPASS);
+
+        entityManager1.createQuery("select p from Pedido p ", Pedido.class)
+                //.setHint("javax.persistence.cache.storeMode", CacheStoreMode.BYPASS)
+                .getResultList();
+
+        //CacheStoreMode.USE -> Adiciona no cache
+        //CacheStoreMode.BYPASS -> Ignorar Retorno e nao vai adicionar o retorno no cache
+        //CacheStoreMode.REFRESH -> e parecido com o use toda a consulta que tem ele pega retorno e joga no cache.
+
+        System.out.println("Buscando o pedido de ID igual a 2 ....................................");
+        EntityManager entityManager2 = entityManagerFactory.createEntityManager();
+        Map<String, Object> properties = new HashMap<>();
+        //properties.put("javax.persistence.cache.storeMode", CacheStoreMode.BYPASS);
+        properties.put("javax.persistence.cache.retrieveMode", CacheRetrieveMode.USE);
+        entityManager2.find(Pedido.class, 2, properties);
+
+        //Assert.assertTrue(cache.contains(Pedido.class, 1));
+    }
+
 
 
     @Test

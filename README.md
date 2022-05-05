@@ -40,3 +40,14 @@ NONE -> e para nao colocar nenhuma entidade no cache\
 DISABLE_SELECTIVE -> e para cachear todas as unidades, porem as que tiverem anotacao @Cacheable(false) nao e para cachear\
 ENABLE_SELECTIVE -> so ira cachear as entidades que estiverem com a anotacao @Cacheable pois por default ela ja e true**
 
+**javax.persistence.cache.retrieveMode CacheRetrieveMode** -> _essa propriedade vai nos ajudar na hora de fazer a pesquisa
+se vamos querer que a pesquisa fique no cache_
+
+**javax.persistence.cache.storeMode CacheStoreMode** -> _essa propriedade vai nos ajudar na hora de pegar o resultado de uma pesquisa
+pegando esse resultado e colocar no cache ou nao._
+
+Usando a **StoreMode** {
+_CacheStoreMode.USE -> Adiciona no cache
+CacheStoreMode.BYPASS -> Ignorar Retorno e nao vai adicionar o retorno no cache
+CacheStoreMode.REFRESH -> e parecido com o use toda a consulta que tem ele pega retorno e joga no cache, Porem ele sempre atualiza o cache_
+}
