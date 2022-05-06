@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.algaworks.ecommerce.jpql.BetweenTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.004 sec

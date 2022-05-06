@@ -8,6 +8,7 @@ C:\Users\USUÁRIO\OneDrive\Documentos\repositorio\algaWorksJPA\src\main\java\com
 C:\Users\USUÁRIO\OneDrive\Documentos\repositorio\algaWorksJPA\src\main\java\com\algaworks\ecommerce\service\NotaFiscalService.java
 C:\Users\USUÁRIO\OneDrive\Documentos\repositorio\algaWorksJPA\src\main\java\com\algaworks\ecommerce\model\ItemPedido.java
 C:\Users\USUÁRIO\OneDrive\Documentos\repositorio\algaWorksJPA\src\main\java\com\algaworks\ecommerce\model\Pedido.java
+C:\Users\USUÁRIO\OneDrive\Documentos\repositorio\algaWorksJPA\src\main\java\com\algaworks\ecommerce\model\converter\BooleanToSimNaoConverter.java
 C:\Users\USUÁRIO\OneDrive\Documentos\repositorio\algaWorksJPA\src\main\java\com\algaworks\ecommerce\model\StatusPedido.java
 C:\Users\USUÁRIO\OneDrive\Documentos\repositorio\algaWorksJPA\src\main\java\com\algaworks\ecommerce\util\IniciarUnidadePersistencia.java
 C:\Users\USUÁRIO\OneDrive\Documentos\repositorio\algaWorksJPA\src\main\java\com\algaworks\ecommerce\model\StatusPagamento.java

@@ -29,7 +29,8 @@ FetchType.EAGERmas os atributos não especificados usarão seu tipo especificado
 
 
 # Cache de segundo nivel
-**_Colocamos a propriedade no persistence <property name="javax.persistence.sharedCache.mode" value="ALL"/>
+**_Colocamos a propriedade no persistence 
+property name="javax.persistence.sharedCache.mode" value="ALL"/
 essa propriedade nos permite configurar o cache de segundo nivel.
 podemos tbm usar a  <persistence-unit name="Ecommerce-PU">
 <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>_**

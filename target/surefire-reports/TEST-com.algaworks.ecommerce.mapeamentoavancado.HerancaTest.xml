@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="3" failures="0" name="com.algaworks.ecommerce.mapeamentoavancado.HerancaTest" time="0.074" errors="1" skipped="0">
+  <properties>
+    <property name="idea.version" value="2021.2.2"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="java.vm.version" value="16.0.2+7-67"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-16.0.2\bin"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\USUÁRIO\OneDrive\Documentos\repositorio"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="path.separator" value=";"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="BR"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="C:\Users\USUÁRIO\OneDrive\Documentos\repositorio\algaWorksJPA"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="java.runtime.version" value="16.0.2+7-67"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\USURIO~1\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="maven.ext.class.path" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.2\plugins\maven\lib\maven-event-listener.jar"/>
+    <property name="classworlds.conf" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.2\plugins\maven\lib\maven3\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-16.0.2\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\app\marcelo\product\18.0.0\dbhomeXE\bin;C:\db_oracle\bin;C:\Program Files\Java\jdk-16.0.2\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\ProgramData\nvm;C:\Program Files\nodejs;C:\Program Files\nodejs\;C:\Program Files\Java\jdk-16.0.2\bin;C:\Program Files\Java\jdk-16.0.2\bin;;C:\Program Files\TortoiseGit\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\USUÁRIO\AppData\Local\Microsoft\WindowsApps;C:\Users\USUÁRIO\AppData\Local\Programs\Microsoft VS Code\bin;C:\tools\Cmder;C:\Users\USUÁRIO\AppData\Roaming\npm;C:\Program Files\Java\jdk-16.0.2C:\Program Files\Java\jdk-16.0.2;C:\Users\USUÁRIO\AppData\Local\GitHubDesktop\bin;."/>
+    <property name="maven.conf" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.2\plugins\maven\lib\maven3/conf"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="java.class.version" value="60.0"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="user.home" value="C:\Users\USUÁRIO"/>
+    <property name="user.timezone" value="GMT-03:00"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="16"/>
+    <property name="user.name" value="USUÁRIO"/>
+    <property name="java.class.path" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.2\plugins\maven\lib\maven3\boot\plexus-classworlds-2.6.0.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.2\plugins\maven\lib\maven3\boot\plexus-classworlds.license"/>
+    <property name="java.vm.specification.version" value="16"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2021.2.2 clean install"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-16.0.2"/>
+    <property name="user.language" value="pt"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.version" value="16.0.2"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.2\plugins\maven\lib\maven3"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.version.date" value="2021-07-20"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="com.algaworks.ecommerce.mapeamentoavancado.HerancaTest" name="salvarCliente" time="0.029"/>
+  <testcase classname="com.algaworks.ecommerce.mapeamentoavancado.HerancaTest" name="incluirPagamentoPedido" time="0.013">
+    <error message="A different object with the same identifier value was already associated with the session : [com.algaworks.ecommerce.model.PagamentoCartao#1]" type="javax.persistence.EntityExistsException">javax.persistence.EntityExistsException: A different object with the same identifier value was already associated with the session : [com.algaworks.ecommerce.model.PagamentoCartao#1]
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:123)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:181)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:188)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:726)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:706)
+	at com.algaworks.ecommerce.mapeamentoavancado.HerancaTest.incluirPagamentoPedido(HerancaTest.java:53)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+</error>
+    <system-out>Hibernate: 
+    select
+        pedido0_.id as id1_8_0_,
+        pedido0_.cliente_id as cliente14_8_0_,
+        pedido0_.data_conclusao as data_con2_8_0_,
+        pedido0_.data_criacao as data_cri3_8_0_,
+        pedido0_.data_ultima_atualizacao as data_ult4_8_0_,
+        pedido0_.bairro as bairro5_8_0_,
+        pedido0_.cep as cep6_8_0_,
+        pedido0_.cidade as cidade7_8_0_,
+        pedido0_.complemento as compleme8_8_0_,
+        pedido0_.estado as estado9_8_0_,
+        pedido0_.logradouro as logrado10_8_0_,
+        pedido0_.numero as numero11_8_0_,
+        pedido0_.status as status12_8_0_,
+        pedido0_.total as total13_8_0_,
+        cliente1_.id as id1_1_1_,
+        cliente1_.cpf as cpf2_1_1_,
+        cliente1_.nome as nome3_1_1_,
+        cliente1_1_.data_nascimento as data_nas1_3_1_,
+        cliente1_1_.sexo as sexo2_3_1_,
+        notafiscal2_.pedido_id as pedido_i1_6_2_,
+        notafiscal2_.data_emissao as data_emi2_6_2_,
+        notafiscal2_.xml as xml3_6_2_,
+        pagamento3_.pedido_id as pedido_i2_7_3_,
+        pagamento3_.status as status3_7_3_,
+        pagamento3_.numero_cartao as numero_c4_7_3_,
+        pagamento3_.codigo_barras as codigo_b5_7_3_,
+        pagamento3_.data_vencimento as data_ven6_7_3_,
+        pagamento3_.tipo_pagamento as tipo_pag1_7_3_ 
+    from
+        pedido pedido0_ 
+    left outer join
+        cliente cliente1_ 
+            on pedido0_.cliente_id=cliente1_.id 
+    left outer join
+        cliente_detalhe cliente1_1_ 
+            on cliente1_.id=cliente1_1_.cliente_id 
+    left outer join
+        nota_fiscal notafiscal2_ 
+            on pedido0_.id=notafiscal2_.pedido_id 
+    left outer join
+        pagamento pagamento3_ 
+            on pedido0_.id=pagamento3_.pedido_id 
+    where
+        pedido0_.id=?
+Ap�s carregar o Pedido.
+</system-out>
+  </testcase>
+  <testcase classname="com.algaworks.ecommerce.mapeamentoavancado.HerancaTest" name="buscarPagamentos" time="0.032"/>
+</testsuite>
