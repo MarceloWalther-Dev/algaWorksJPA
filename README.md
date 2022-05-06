@@ -69,3 +69,6 @@ _adicionando a versão no UPDATE acresentando um numero para uma nova versão j�
 
 **Pessimista**: _Usa recursos extras do banco de dados._\
 "_Ae banco de dados trava essa linha ai e não deixa mais ninguem alterar ela_"
+
+**LockModeType.PESSIMISTIC_READ** -> _permite que outras threads leiam mas na hora de comitar não permite, pois só quem tem o lock que pode commitar_\
+_Quando a proxima thread for comitar vai jogar um erro pq ela vai estar com os dados antigos pois a busca que ela vez e não consegui lockar será alterado com a thread que locou_
