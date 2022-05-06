@@ -71,8 +71,10 @@ _adicionando a versão no UPDATE acresentando um numero para uma nova versão j�
 "_Ae banco de dados trava essa linha ai e não deixa mais ninguem alterar ela_"
 
 **LockModeType.PESSIMISTIC_READ** -> _permite que outras threads leiam mas na hora de comitar não permite, pois só quem tem o lock que pode commitar_\
-_Quando a proxima thread for comitar vai jogar um erro pq ela vai estar com os dados antigos pois a busca que ela vez e não consegui lockar será alterado com a thread que locou_
+_Quando a proxima thread for comitar vai jogar um erro pq ela vai estar com os dados antigos pois a busca que ela vez e não consegui lockar será alterado com a thread que locou_\
+_Ele permite que todo mundo leia mas não atualize_\
 
 **LockModeType.PESSIMISTIC_READ** -> _Esse parametro vai permitir o entityManager consultar fazer a alteração, só que não vai permitir salvar
 enquanto a outra thread terminar o serviço, em outras palavras ela vai ficar aguardando até que se encerre a transação_\
-*_*Se atentar para não colocar junto com o lockOtimista*_*
+*_*Se atentar para não colocar junto com o lockOtimista*_*\
+_Usamos para pegar os dados atualizados, pegamos do banco e atualizamos e persistimos_
