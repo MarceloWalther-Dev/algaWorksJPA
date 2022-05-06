@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="6" failures="2" name="com.algaworks.ecommerce.cache.CacheTest" time="1.029" errors="0" skipped="0">
+  <properties>
+    <property name="idea.version" value="2021.2.2"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="java.vm.version" value="16.0.2+7-67"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-16.0.2\bin"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\USUÁRIO\OneDrive\Documentos\repositorio"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="path.separator" value=";"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="BR"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="C:\Users\USUÁRIO\OneDrive\Documentos\repositorio\algaWorksJPA"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="java.runtime.version" value="16.0.2+7-67"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\USURIO~1\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="maven.ext.class.path" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.2\plugins\maven\lib\maven-event-listener.jar"/>
+    <property name="classworlds.conf" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.2\plugins\maven\lib\maven3\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-16.0.2\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\app\marcelo\product\18.0.0\dbhomeXE\bin;C:\db_oracle\bin;C:\Program Files\Java\jdk-16.0.2\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\ProgramData\nvm;C:\Program Files\nodejs;C:\Program Files\nodejs\;C:\Program Files\Java\jdk-16.0.2\bin;C:\Program Files\Java\jdk-16.0.2\bin;;C:\Program Files\TortoiseGit\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\USUÁRIO\AppData\Local\Microsoft\WindowsApps;C:\Users\USUÁRIO\AppData\Local\Programs\Microsoft VS Code\bin;C:\tools\Cmder;C:\Users\USUÁRIO\AppData\Roaming\npm;C:\Program Files\Java\jdk-16.0.2C:\Program Files\Java\jdk-16.0.2;C:\Users\USUÁRIO\AppData\Local\GitHubDesktop\bin;."/>
+    <property name="maven.conf" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.2\plugins\maven\lib\maven3/conf"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="java.class.version" value="60.0"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="user.home" value="C:\Users\USUÁRIO"/>
+    <property name="user.timezone" value="GMT-03:00"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="16"/>
+    <property name="user.name" value="USUÁRIO"/>
+    <property name="java.class.path" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.2\plugins\maven\lib\maven3\boot\plexus-classworlds-2.6.0.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.2\plugins\maven\lib\maven3\boot\plexus-classworlds.license"/>
+    <property name="java.vm.specification.version" value="16"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2021.2.2 clean install"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-16.0.2"/>
+    <property name="user.language" value="pt"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.version" value="16.0.2"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.2\plugins\maven\lib\maven3"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.version.date" value="2021-07-20"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="com.algaworks.ecommerce.cache.CacheTest" name="removerDoCache" time="0.489"/>
+  <testcase classname="com.algaworks.ecommerce.cache.CacheTest" name="controlarCacheDinamicamente" time="0.163"/>
+  <testcase classname="com.algaworks.ecommerce.cache.CacheTest" name="verificandoSeUmaEntidadeEstaNoCache" time="0.126">
+    <failure type="java.lang.AssertionError">java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:86)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at org.junit.Assert.assertTrue(Assert.java:52)
+	at com.algaworks.ecommerce.cache.CacheTest.verificandoSeUmaEntidadeEstaNoCache(CacheTest.java:82)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+</failure>
+    <system-out>Buscando a partir da instacia 1:
+Hibernate: 
+    select
+        pedido0_.id as id1_8_,
+        pedido0_.cliente_id as cliente14_8_,
+        pedido0_.data_conclusao as data_con2_8_,
+        pedido0_.data_criacao as data_cri3_8_,
+        pedido0_.data_ultima_atualizacao as data_ult4_8_,
+        pedido0_.bairro as bairro5_8_,
+        pedido0_.cep as cep6_8_,
+        pedido0_.cidade as cidade7_8_,
+        pedido0_.complemento as compleme8_8_,
+        pedido0_.estado as estado9_8_,
+        pedido0_.logradouro as logrado10_8_,
+        pedido0_.numero as numero11_8_,
+        pedido0_.status as status12_8_,
+        pedido0_.total as total13_8_ 
+    from
+        pedido pedido0_
+Hibernate: 
+    select
+        cliente0_.id as id1_1_0_,
+        cliente0_.cpf as cpf2_1_0_,
+        cliente0_.nome as nome3_1_0_,
+        cliente0_1_.data_nascimento as data_nas1_3_0_,
+        cliente0_1_.sexo as sexo2_3_0_ 
+    from
+        cliente cliente0_ 
+    left outer join
+        cliente_detalhe cliente0_1_ 
+            on cliente0_.id=cliente0_1_.cliente_id 
+    where
+        cliente0_.id=?
+Hibernate: 
+    select
+        notafiscal0_.pedido_id as pedido_i1_6_0_,
+        notafiscal0_.data_emissao as data_emi2_6_0_,
+        notafiscal0_.xml as xml3_6_0_ 
+    from
+        nota_fiscal notafiscal0_ 
+    where
+        notafiscal0_.pedido_id=?
+Hibernate: 
+    select
+        pagamento0_.pedido_id as pedido_i2_7_0_,
+        pagamento0_.status as status3_7_0_,
+        pagamento0_.numero_cartao as numero_c4_7_0_,
+        pagamento0_.codigo_barras as codigo_b5_7_0_,
+        pagamento0_.data_vencimento as data_ven6_7_0_,
+        pagamento0_.tipo_pagamento as tipo_pag1_7_0_ 
+    from
+        pagamento pagamento0_ 
+    where
+        pagamento0_.pedido_id=?
+Hibernate: 
+    select
+        notafiscal0_.pedido_id as pedido_i1_6_0_,
+        notafiscal0_.data_emissao as data_emi2_6_0_,
+        notafiscal0_.xml as xml3_6_0_ 
+    from
+        nota_fiscal notafiscal0_ 
+    where
+        notafiscal0_.pedido_id=?
+Hibernate: 
+    select
+        pagamento0_.pedido_id as pedido_i2_7_0_,
+        pagamento0_.status as status3_7_0_,
+        pagamento0_.numero_cartao as numero_c4_7_0_,
+        pagamento0_.codigo_barras as codigo_b5_7_0_,
+        pagamento0_.data_vencimento as data_ven6_7_0_,
+        pagamento0_.tipo_pagamento as tipo_pag1_7_0_ 
+    from
+        pagamento pagamento0_ 
+    where
+        pagamento0_.pedido_id=?
+Hibernate: 
+    select
+        notafiscal0_.pedido_id as pedido_i1_6_0_,
+        notafiscal0_.data_emissao as data_emi2_6_0_,
+        notafiscal0_.xml as xml3_6_0_ 
+    from
+        nota_fiscal notafiscal0_ 
+    where
+        notafiscal0_.pedido_id=?
+Hibernate: 
+    select
+        pagamento0_.pedido_id as pedido_i2_7_0_,
+        pagamento0_.status as status3_7_0_,
+        pagamento0_.numero_cartao as numero_c4_7_0_,
+        pagamento0_.codigo_barras as codigo_b5_7_0_,
+        pagamento0_.data_vencimento as data_ven6_7_0_,
+        pagamento0_.tipo_pagamento as tipo_pag1_7_0_ 
+    from
+        pagamento pagamento0_ 
+    where
+        pagamento0_.pedido_id=?
+Hibernate: 
+    select
+        cliente0_.id as id1_1_0_,
+        cliente0_.cpf as cpf2_1_0_,
+        cliente0_.nome as nome3_1_0_,
+        cliente0_1_.data_nascimento as data_nas1_3_0_,
+        cliente0_1_.sexo as sexo2_3_0_ 
+    from
+        cliente cliente0_ 
+    left outer join
+        cliente_detalhe cliente0_1_ 
+            on cliente0_.id=cliente0_1_.cliente_id 
+    where
+        cliente0_.id=?
+Hibernate: 
+    select
+        notafiscal0_.pedido_id as pedido_i1_6_0_,
+        notafiscal0_.data_emissao as data_emi2_6_0_,
+        notafiscal0_.xml as xml3_6_0_ 
+    from
+        nota_fiscal notafiscal0_ 
+    where
+        notafiscal0_.pedido_id=?
+Hibernate: 
+    select
+        pagamento0_.pedido_id as pedido_i2_7_0_,
+        pagamento0_.status as status3_7_0_,
+        pagamento0_.numero_cartao as numero_c4_7_0_,
+        pagamento0_.codigo_barras as codigo_b5_7_0_,
+        pagamento0_.data_vencimento as data_ven6_7_0_,
+        pagamento0_.tipo_pagamento as tipo_pag1_7_0_ 
+    from
+        pagamento pagamento0_ 
+    where
+        pagamento0_.pedido_id=?
+Hibernate: 
+    select
+        notafiscal0_.pedido_id as pedido_i1_6_0_,
+        notafiscal0_.data_emissao as data_emi2_6_0_,
+        notafiscal0_.xml as xml3_6_0_ 
+    from
+        nota_fiscal notafiscal0_ 
+    where
+        notafiscal0_.pedido_id=?
+Hibernate: 
+    select
+        pagamento0_.pedido_id as pedido_i2_7_0_,
+        pagamento0_.status as status3_7_0_,
+        pagamento0_.numero_cartao as numero_c4_7_0_,
+        pagamento0_.codigo_barras as codigo_b5_7_0_,
+        pagamento0_.data_vencimento as data_ven6_7_0_,
+        pagamento0_.tipo_pagamento as tipo_pag1_7_0_ 
+    from
+        pagamento pagamento0_ 
+    where
+        pagamento0_.pedido_id=?
+Hibernate: 
+    select
+        notafiscal0_.pedido_id as pedido_i1_6_0_,
+        notafiscal0_.data_emissao as data_emi2_6_0_,
+        notafiscal0_.xml as xml3_6_0_ 
+    from
+        nota_fiscal notafiscal0_ 
+    where
+        notafiscal0_.pedido_id=?
+Hibernate: 
+    select
+        pagamento0_.pedido_id as pedido_i2_7_0_,
+        pagamento0_.status as status3_7_0_,
+        pagamento0_.numero_cartao as numero_c4_7_0_,
+        pagamento0_.codigo_barras as codigo_b5_7_0_,
+        pagamento0_.data_vencimento as data_ven6_7_0_,
+        pagamento0_.tipo_pagamento as tipo_pag1_7_0_ 
+    from
+        pagamento pagamento0_ 
+    where
+        pagamento0_.pedido_id=?
+Ap�s carregar o Pedido.
+Ap�s carregar o Pedido.
+Ap�s carregar o Pedido.
+Ap�s carregar o Pedido.
+Ap�s carregar o Pedido.
+Ap�s carregar o Pedido.
+</system-out>
+  </testcase>
+  <testcase classname="com.algaworks.ecommerce.cache.CacheTest" name="analisarOpcoesCache" time="0.1">
+    <failure type="java.lang.AssertionError">java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:86)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at org.junit.Assert.assertTrue(Assert.java:52)
+	at com.algaworks.ecommerce.cache.CacheTest.analisarOpcoesCache(CacheTest.java:68)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+</failure>
+    <system-out>Buscando a partir da instacia 1:
+Hibernate: 
+    select
+        pedido0_.id as id1_8_,
+        pedido0_.cliente_id as cliente14_8_,
+        pedido0_.data_conclusao as data_con2_8_,
+        pedido0_.data_criacao as data_cri3_8_,
+        pedido0_.data_ultima_atualizacao as data_ult4_8_,
+        pedido0_.bairro as bairro5_8_,
+        pedido0_.cep as cep6_8_,
+        pedido0_.cidade as cidade7_8_,
+        pedido0_.complemento as compleme8_8_,
+        pedido0_.estado as estado9_8_,
+        pedido0_.logradouro as logrado10_8_,
+        pedido0_.numero as numero11_8_,
+        pedido0_.status as status12_8_,
+        pedido0_.total as total13_8_ 
+    from
+        pedido pedido0_
+Hibernate: 
+    select
+        cliente0_.id as id1_1_0_,
+        cliente0_.cpf as cpf2_1_0_,
+        cliente0_.nome as nome3_1_0_,
+        cliente0_1_.data_nascimento as data_nas1_3_0_,
+        cliente0_1_.sexo as sexo2_3_0_ 
+    from
+        cliente cliente0_ 
+    left outer join
+        cliente_detalhe cliente0_1_ 
+            on cliente0_.id=cliente0_1_.cliente_id 
+    where
+        cliente0_.id=?
+Hibernate: 
+    select
+        notafiscal0_.pedido_id as pedido_i1_6_0_,
+        notafiscal0_.data_emissao as data_emi2_6_0_,
+        notafiscal0_.xml as xml3_6_0_ 
+    from
+        nota_fiscal notafiscal0_ 
+    where
+        notafiscal0_.pedido_id=?
+Hibernate: 
+    select
+        pagamento0_.pedido_id as pedido_i2_7_0_,
+        pagamento0_.status as status3_7_0_,
+        pagamento0_.numero_cartao as numero_c4_7_0_,
+        pagamento0_.codigo_barras as codigo_b5_7_0_,
+        pagamento0_.data_vencimento as data_ven6_7_0_,
+        pagamento0_.tipo_pagamento as tipo_pag1_7_0_ 
+    from
+        pagamento pagamento0_ 
+    where
+        pagamento0_.pedido_id=?
+Hibernate: 
+    select
+        notafiscal0_.pedido_id as pedido_i1_6_0_,
+        notafiscal0_.data_emissao as data_emi2_6_0_,
+        notafiscal0_.xml as xml3_6_0_ 
+    from
+        nota_fiscal notafiscal0_ 
+    where
+        notafiscal0_.pedido_id=?
+Hibernate: 
+    select
+        pagamento0_.pedido_id as pedido_i2_7_0_,
+        pagamento0_.status as status3_7_0_,
+        pagamento0_.numero_cartao as numero_c4_7_0_,
+        pagamento0_.codigo_barras as codigo_b5_7_0_,
+        pagamento0_.data_vencimento as data_ven6_7_0_,
+        pagamento0_.tipo_pagamento as tipo_pag1_7_0_ 
+    from
+        pagamento pagamento0_ 
+    where
+        pagamento0_.pedido_id=?
+Hibernate: 
+    select
+        notafiscal0_.pedido_id as pedido_i1_6_0_,
+        notafiscal0_.data_emissao as data_emi2_6_0_,
+        notafiscal0_.xml as xml3_6_0_ 
+    from
+        nota_fiscal notafiscal0_ 
+    where
+        notafiscal0_.pedido_id=?
+Hibernate: 
+    select
+        pagamento0_.pedido_id as pedido_i2_7_0_,
+        pagamento0_.status as status3_7_0_,
+        pagamento0_.numero_cartao as numero_c4_7_0_,
+        pagamento0_.codigo_barras as codigo_b5_7_0_,
+        pagamento0_.data_vencimento as data_ven6_7_0_,
+        pagamento0_.tipo_pagamento as tipo_pag1_7_0_ 
+    from
+        pagamento pagamento0_ 
+    where
+        pagamento0_.pedido_id=?
+Hibernate: 
+    select
+        cliente0_.id as id1_1_0_,
+        cliente0_.cpf as cpf2_1_0_,
+        cliente0_.nome as nome3_1_0_,
+        cliente0_1_.data_nascimento as data_nas1_3_0_,
+        cliente0_1_.sexo as sexo2_3_0_ 
+    from
+        cliente cliente0_ 
+    left outer join
+        cliente_detalhe cliente0_1_ 
+            on cliente0_.id=cliente0_1_.cliente_id 
+    where
+        cliente0_.id=?
+Hibernate: 
+    select
+        notafiscal0_.pedido_id as pedido_i1_6_0_,
+        notafiscal0_.data_emissao as data_emi2_6_0_,
+        notafiscal0_.xml as xml3_6_0_ 
+    from
+        nota_fiscal notafiscal0_ 
+    where
+        notafiscal0_.pedido_id=?
+Hibernate: 
+    select
+        pagamento0_.pedido_id as pedido_i2_7_0_,
+        pagamento0_.status as status3_7_0_,
+        pagamento0_.numero_cartao as numero_c4_7_0_,
+        pagamento0_.codigo_barras as codigo_b5_7_0_,
+        pagamento0_.data_vencimento as data_ven6_7_0_,
+        pagamento0_.tipo_pagamento as tipo_pag1_7_0_ 
+    from
+        pagamento pagamento0_ 
+    where
+        pagamento0_.pedido_id=?
+Hibernate: 
+    select
+        notafiscal0_.pedido_id as pedido_i1_6_0_,
+        notafiscal0_.data_emissao as data_emi2_6_0_,
+        notafiscal0_.xml as xml3_6_0_ 
+    from
+        nota_fiscal notafiscal0_ 
+    where
+        notafiscal0_.pedido_id=?
+Hibernate: 
+    select
+        pagamento0_.pedido_id as pedido_i2_7_0_,
+        pagamento0_.status as status3_7_0_,
+        pagamento0_.numero_cartao as numero_c4_7_0_,
+        pagamento0_.codigo_barras as codigo_b5_7_0_,
+        pagamento0_.data_vencimento as data_ven6_7_0_,
+        pagamento0_.tipo_pagamento as tipo_pag1_7_0_ 
+    from
+        pagamento pagamento0_ 
+    where
+        pagamento0_.pedido_id=?
+Hibernate: 
+    select
+        notafiscal0_.pedido_id as pedido_i1_6_0_,
+        notafiscal0_.data_emissao as data_emi2_6_0_,
+        notafiscal0_.xml as xml3_6_0_ 
+    from
+        nota_fiscal notafiscal0_ 
+    where
+        notafiscal0_.pedido_id=?
+Hibernate: 
+    select
+        pagamento0_.pedido_id as pedido_i2_7_0_,
+        pagamento0_.status as status3_7_0_,
+        pagamento0_.numero_cartao as numero_c4_7_0_,
+        pagamento0_.codigo_barras as codigo_b5_7_0_,
+        pagamento0_.data_vencimento as data_ven6_7_0_,
+        pagamento0_.tipo_pagamento as tipo_pag1_7_0_ 
+    from
+        pagamento pagamento0_ 
+    where
+        pagamento0_.pedido_id=?
+Ap�s carregar o Pedido.
+Ap�s carregar o Pedido.
+Ap�s carregar o Pedido.
+Ap�s carregar o Pedido.
+Ap�s carregar o Pedido.
+Ap�s carregar o Pedido.
+</system-out>
+  </testcase>
+  <testcase classname="com.algaworks.ecommerce.cache.CacheTest" name="adicionarPedidosNoCache" time="0.105"/>
+  <testcase classname="com.algaworks.ecommerce.cache.CacheTest" name="buscarDoCache" time="0.046"/>
+</testsuite>

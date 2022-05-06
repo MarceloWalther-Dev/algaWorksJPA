@@ -1,3 +1,4 @@
+com\algaworks\ecommerce\model\converter\BooleanToSimNaoConverter.class
 com\algaworks\ecommerce\model\ItemPedido_.class
 com\algaworks\ecommerce\service\NotaFiscalService.class
 com\algaworks\ecommerce\model\Pedido.class

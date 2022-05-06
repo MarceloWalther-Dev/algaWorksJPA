@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="1" failures="1" name="com.algaworks.ecommerce.relacionamentos.RemovendoEntidadesReferenciadasTest" time="0.371" errors="0" skipped="0">
+  <properties>
+    <property name="idea.version" value="2021.2.2"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="java.vm.version" value="16.0.2+7-67"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-16.0.2\bin"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\USUÁRIO\OneDrive\Documentos\repositorio"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="path.separator" value=";"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="BR"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="C:\Users\USUÁRIO\OneDrive\Documentos\repositorio\algaWorksJPA"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="java.runtime.version" value="16.0.2+7-67"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\USURIO~1\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="maven.ext.class.path" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.2\plugins\maven\lib\maven-event-listener.jar"/>
+    <property name="classworlds.conf" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.2\plugins\maven\lib\maven3\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-16.0.2\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\app\marcelo\product\18.0.0\dbhomeXE\bin;C:\db_oracle\bin;C:\Program Files\Java\jdk-16.0.2\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\ProgramData\nvm;C:\Program Files\nodejs;C:\Program Files\nodejs\;C:\Program Files\Java\jdk-16.0.2\bin;C:\Program Files\Java\jdk-16.0.2\bin;;C:\Program Files\TortoiseGit\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\USUÁRIO\AppData\Local\Microsoft\WindowsApps;C:\Users\USUÁRIO\AppData\Local\Programs\Microsoft VS Code\bin;C:\tools\Cmder;C:\Users\USUÁRIO\AppData\Roaming\npm;C:\Program Files\Java\jdk-16.0.2C:\Program Files\Java\jdk-16.0.2;C:\Users\USUÁRIO\AppData\Local\GitHubDesktop\bin;."/>
+    <property name="maven.conf" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.2\plugins\maven\lib\maven3/conf"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="java.class.version" value="60.0"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="user.home" value="C:\Users\USUÁRIO"/>
+    <property name="user.timezone" value="GMT-03:00"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="16"/>
+    <property name="user.name" value="USUÁRIO"/>
+    <property name="java.class.path" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.2\plugins\maven\lib\maven3\boot\plexus-classworlds-2.6.0.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.2\plugins\maven\lib\maven3\boot\plexus-classworlds.license"/>
+    <property name="java.vm.specification.version" value="16"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2021.2.2 clean install"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-16.0.2"/>
+    <property name="user.language" value="pt"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.version" value="16.0.2"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.2\plugins\maven\lib\maven3"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.version.date" value="2021-07-20"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="com.algaworks.ecommerce.relacionamentos.RemovendoEntidadesReferenciadasTest" name="removendoItens" time="0.371">
+    <failure message="expected null, but was:&lt;Pedido(cliente=com.algaworks.ecommerce.model.Cliente@3c, itensPedido=[], dataCriacao=2022-04-03T08:44:27, dataUltimaAtualizacao=null, dataConclusao=null, notaFiscal=null, total=2398.00, status=AGUARDANDO, enderecoEntrega=null, pagamento=com.algaworks.ecommerce.model.PagamentoCartao@3c)&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected null, but was:&lt;Pedido(cliente=com.algaworks.ecommerce.model.Cliente@3c, itensPedido=[], dataCriacao=2022-04-03T08:44:27, dataUltimaAtualizacao=null, dataConclusao=null, notaFiscal=null, total=2398.00, status=AGUARDANDO, enderecoEntrega=null, pagamento=com.algaworks.ecommerce.model.PagamentoCartao@3c)&gt;
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotNull(Assert.java:755)
+	at org.junit.Assert.assertNull(Assert.java:737)
+	at org.junit.Assert.assertNull(Assert.java:747)
+	at com.algaworks.ecommerce.relacionamentos.RemovendoEntidadesReferenciadasTest.removendoItens(RemovendoEntidadesReferenciadasTest.java:26)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+</failure>
+    <system-out>Hibernate: 
+    
+    alter table categoria 
+       drop 
+       foreign key fk_categoria_categoriaPai
+Hibernate: 
+    
+    alter table cliente_contato 
+       drop 
+       foreign key fk_cliente_contatos
+Hibernate: 
+    
+    alter table cliente_detalhe 
+       drop 
+       foreign key fk_cliente_detalhe_cliente
+Hibernate: 
+    
+    alter table estoque 
+       drop 
+       foreign key fk_estoque_produto
+Hibernate: 
+    
+    alter table item_pedido 
+       drop 
+       foreign key fk_item_pedido_pedido
+Hibernate: 
+    
+    alter table item_pedido 
+       drop 
+       foreign key fk_item_pedido_produto
+Hibernate: 
+    
+    alter table nota_fiscal 
+       drop 
+       foreign key fk_nota_fiscal_pedido
+Hibernate: 
+    
+    alter table pagamento 
+       drop 
+       foreign key fk_pagamento_pedido
+Hibernate: 
+    
+    alter table pedido 
+       drop 
+       foreign key fk_pedido_cliente
+Hibernate: 
+    
+    alter table produto_atributo 
+       drop 
+       foreign key fk_produto_atributos
+Hibernate: 
+    
+    alter table produto_categoria 
+       drop 
+       foreign key fk_produto_categoria_categoria
+Hibernate: 
+    
+    alter table produto_categoria 
+       drop 
+       foreign key fk_produto_categoria_produto
+Hibernate: 
+    
+    alter table produto_tag 
+       drop 
+       foreign key fk_produto_tags
+Hibernate: 
+    
+    drop table if exists categoria
+Hibernate: 
+    
+    drop table if exists cliente
+Hibernate: 
+    
+    drop table if exists cliente_contato
+Hibernate: 
+    
+    drop table if exists cliente_detalhe
+Hibernate: 
+    
+    drop table if exists estoque
+Hibernate: 
+    
+    drop table if exists item_pedido
+Hibernate: 
+    
+    drop table if exists nota_fiscal
+Hibernate: 
+    
+    drop table if exists pagamento
+Hibernate: 
+    
+    drop table if exists pedido
+Hibernate: 
+    
+    drop table if exists produto
+Hibernate: 
+    
+    drop table if exists produto_atributo
+Hibernate: 
+    
+    drop table if exists produto_categoria
+Hibernate: 
+    
+    drop table if exists produto_tag
+Hibernate: 
+    
+    create table categoria (
+       id integer not null auto_increment,
+        nome varchar(100) not null,
+        categoria_pai_id integer,
+        primary key (id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table cliente (
+       id integer not null auto_increment,
+        cpf varchar(14) not null,
+        nome varchar(100) not null,
+        primary key (id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table cliente_contato (
+       cliente_id integer not null,
+        descricao varchar(255),
+        tipo varchar(255) not null,
+        primary key (cliente_id, tipo)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table cliente_detalhe (
+       data_nascimento date,
+        sexo varchar(30) not null,
+        cliente_id integer not null,
+        primary key (cliente_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table estoque (
+       id integer not null auto_increment,
+        quantidade integer not null,
+        produto_id integer not null,
+        primary key (id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table item_pedido (
+       pedido_id integer not null,
+        produto_id integer not null,
+        preco_produto decimal(19,2) not null,
+        quantidade integer not null,
+        primary key (pedido_id, produto_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table nota_fiscal (
+       pedido_id integer not null,
+        data_emissao datetime(6) not null,
+        xml longblob not null,
+        primary key (pedido_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table pagamento (
+       tipo_pagamento varchar(31) not null,
+        pedido_id integer not null,
+        status varchar(30) not null,
+        numero_cartao varchar(50),
+        codigo_barras varchar(100),
+        data_vencimento date,
+        primary key (pedido_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table pedido (
+       id integer not null auto_increment,
+        data_conclusao datetime(6),
+        data_criacao datetime(6) not null,
+        data_ultima_atualizacao datetime(6),
+        bairro varchar(50),
+        cep varchar(9),
+        cidade varchar(50),
+        complemento varchar(50),
+        estado varchar(2),
+        logradouro varchar(100),
+        numero varchar(10),
+        status varchar(30) not null,
+        total decimal(19,2) not null,
+        cliente_id integer not null,
+        primary key (id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table produto (
+       id integer not null auto_increment,
+        ativo varchar(3) not null,
+        data_criacao datetime(6) not null,
+        data_ultima_atualizacao datetime(6),
+        descricao varchar(255),
+        foto longblob,
+        nome varchar(100) not null,
+        preco decimal(19,2),
+        primary key (id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table produto_atributo (
+       produto_id integer not null,
+        nome varchar(100) not null,
+        valor varchar(255)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table produto_categoria (
+       produto_id integer not null,
+        categoria_id integer not null
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table produto_tag (
+       produto_id integer not null,
+        tag varchar(50) not null,
+        primary key (produto_id, tag)
+    ) engine=InnoDB
+Hibernate: 
+    
+    alter table categoria 
+       add constraint nome unique (nome)
+Hibernate: create index idx_nome on cliente (nome)
+Hibernate: 
+    
+    alter table cliente 
+       add constraint unq_cpf unique (cpf)
+Hibernate: 
+    
+    alter table estoque 
+       add constraint UK_g72w2sa50w9a647f0eyhogus5 unique (produto_id)
+Hibernate: create index idx_nome on produto (nome)
+Hibernate: 
+    
+    alter table produto 
+       add constraint unq_nome unique (nome)
+Hibernate: 
+    
+    alter table categoria 
+       add constraint fk_categoria_categoriaPai 
+       foreign key (categoria_pai_id) 
+       references categoria (id)
+Hibernate: 
+    
+    alter table cliente_contato 
+       add constraint fk_cliente_contatos 
+       foreign key (cliente_id) 
+       references cliente (id)
+Hibernate: 
+    
+    alter table cliente_detalhe 
+       add constraint fk_cliente_detalhe_cliente 
+       foreign key (cliente_id) 
+       references cliente (id)
+Hibernate: 
+    
+    alter table estoque 
+       add constraint fk_estoque_produto 
+       foreign key (produto_id) 
+       references produto (id)
+Hibernate: 
+    
+    alter table item_pedido 
+       add constraint fk_item_pedido_pedido 
+       foreign key (pedido_id) 
+       references pedido (id)
+Hibernate: 
+    
+    alter table item_pedido 
+       add constraint fk_item_pedido_produto 
+       foreign key (produto_id) 
+       references produto (id)
+Hibernate: 
+    
+    alter table nota_fiscal 
+       add constraint fk_nota_fiscal_pedido 
+       foreign key (pedido_id) 
+       references pedido (id)
+Hibernate: 
+    
+    alter table pagamento 
+       add constraint fk_pagamento_pedido 
+       foreign key (pedido_id) 
+       references pedido (id)
+Hibernate: 
+    
+    alter table pedido 
+       add constraint fk_pedido_cliente 
+       foreign key (cliente_id) 
+       references cliente (id)
+Hibernate: 
+    
+    alter table produto_atributo 
+       add constraint fk_produto_atributos 
+       foreign key (produto_id) 
+       references produto (id)
+Hibernate: 
+    
+    alter table produto_categoria 
+       add constraint fk_produto_categoria_categoria 
+       foreign key (categoria_id) 
+       references categoria (id)
+Hibernate: 
+    
+    alter table produto_categoria 
+       add constraint fk_produto_categoria_produto 
+       foreign key (produto_id) 
+       references produto (id)
+Hibernate: 
+    
+    alter table produto_tag 
+       add constraint fk_produto_tags 
+       foreign key (produto_id) 
+       references produto (id)
+Hibernate: 
+    insert into produto (id, nome, preco, data_criacao, ativo, descricao) values (1, &apos;Kindle&apos;, 799.0, date_sub(sysdate(), interval 1 day), &apos;SIM&apos;, &apos;Conheça o novo Kindle, agora com iluminação embutida ajustável, que permite que você leia em ambientes abertos ou fechados, a qualquer hora do dia.&apos;)
+Hibernate: 
+    insert into produto (id, nome, preco, data_criacao, ativo, descricao) values (3, &apos;Câmera GoPro Hero 7&apos;, 1500.0, date_sub(sysdate(), interval 1 day), &apos;SIM&apos;, &apos;Desempenho 2x melhor.&apos;)
+Hibernate: 
+    insert into produto (id, nome, preco, data_criacao, ativo, descricao) values (4, &apos;Câmera Canon 80D&apos;, 3500.0, sysdate(), &apos;SIM&apos;, &apos;O melhor ajuste de foco.&apos;)
+Hibernate: 
+    insert into produto (id, nome, preco, data_criacao, ativo, descricao) values (5, &apos;Microfone de Lapela&apos;, 50.0, sysdate(), &apos;NAO&apos;, &apos;Produto massa&apos;)
+Hibernate: 
+    insert into cliente (id, nome, cpf) values (1, &apos;Fernando Medeiros&apos;, &apos;000&apos;)
+Hibernate: 
+    insert into cliente (id, nome, cpf) values (2, &apos;Marcos Mariano&apos;, &apos;111&apos;)
+Hibernate: 
+    insert into cliente_detalhe (cliente_id, sexo, data_nascimento) values (1, &apos;MASCULINO&apos;, date_sub(sysdate(), interval 27 year))
+Hibernate: 
+    insert into cliente_detalhe (cliente_id, sexo, data_nascimento) values (2, &apos;MASCULINO&apos;, date_sub(sysdate(), interval 30 year))
+Hibernate: 
+    insert into pedido (id, cliente_id, data_criacao, total, status) values (1, 1, date_sub(sysdate(), interval 32 day), 2398.0, &apos;AGUARDANDO&apos;)
+Hibernate: 
+    insert into pedido (id, cliente_id, data_criacao, total, status) values (2, 1, date_sub(sysdate(), interval 5 day), 499.0, &apos;AGUARDANDO&apos;)
+Hibernate: 
+    insert into pedido (id, cliente_id, data_criacao, total, status) values (3, 1, date_sub(sysdate(), interval 4 day), 3500.0, &apos;PAGO&apos;)
+Hibernate: 
+    insert into pedido (id, cliente_id, data_criacao, total, status) values (4, 2, date_sub(sysdate(), interval 2 day), 499.0, &apos;PAGO&apos;)
+Hibernate: 
+    insert into pedido (id, cliente_id, data_criacao, total, status) values (5, 1, date_sub(sysdate(), interval 2 day), 799.0, &apos;PAGO&apos;)
+Hibernate: 
+    insert into pedido (id, cliente_id, data_criacao, total, status) values (6, 2, sysdate(), 799.0, &apos;AGUARDANDO&apos;)
+Hibernate: 
+    insert into item_pedido (pedido_id, produto_id, preco_produto, quantidade) values (1, 1, 499, 2)
+Hibernate: 
+    insert into item_pedido (pedido_id, produto_id, preco_produto, quantidade) values (1, 3, 1400, 1)
+Hibernate: 
+    insert into item_pedido (pedido_id, produto_id, preco_produto, quantidade) values (2, 1, 499, 1)
+Hibernate: 
+    insert into item_pedido (pedido_id, produto_id, preco_produto, quantidade) values (3, 4, 3500, 1)
+Hibernate: 
+    insert into item_pedido (pedido_id, produto_id, preco_produto, quantidade) values (4, 1, 499, 1)
+Hibernate: 
+    insert into item_pedido (pedido_id, produto_id, preco_produto, quantidade) values (5, 1, 799, 1)
+Hibernate: 
+    insert into item_pedido (pedido_id, produto_id, preco_produto, quantidade) values (6, 1, 799, 1)
+Hibernate: 
+    insert into pagamento (pedido_id, status, tipo_pagamento, numero_cartao, codigo_barras) values (1, &apos;RECEBIDO&apos;, &apos;cartao&apos;, &apos;0123&apos;, null)
+Hibernate: 
+    insert into pagamento (pedido_id, status, tipo_pagamento, numero_cartao, codigo_barras) values (2, &apos;PROCESSANDO&apos;, &apos;cartao&apos;, &apos;4567&apos;, null)
+Hibernate: 
+    insert into pagamento (pedido_id, status, tipo_pagamento, numero_cartao, codigo_barras, data_vencimento) values (3, &apos;RECEBIDO&apos;, &apos;boleto&apos;, null, &apos;8910&apos;, date_sub(sysdate(), interval 2 day))
+Hibernate: 
+    insert into pagamento (pedido_id, status, tipo_pagamento, numero_cartao, codigo_barras) values (4, &apos;PROCESSANDO&apos;, &apos;cartao&apos;, &apos;1112&apos;, null)
+Hibernate: 
+    insert into pagamento (pedido_id, status, tipo_pagamento, numero_cartao, codigo_barras, data_vencimento) values (6, &apos;PROCESSANDO&apos;, &apos;boleto&apos;, null, &apos;456&apos;, date_add(sysdate(), interval 2 day))
+Hibernate: 
+    insert into nota_fiscal (pedido_id, xml, data_emissao) values (2, &apos;&lt;xml /&gt;&apos;, sysdate())
+Hibernate: 
+    insert into categoria (id, nome) values (1, &apos;Eletrodomésticos&apos;)
+Hibernate: 
+    insert into categoria (id, nome) values (2, &apos;Livros&apos;)
+Hibernate: 
+    insert into categoria (id, nome) values (3, &apos;Esportes&apos;)
+Hibernate: 
+    insert into categoria (id, nome) values (4, &apos;Futebol&apos;)
+Hibernate: 
+    insert into categoria (id, nome) values (5, &apos;Natação&apos;)
+Hibernate: 
+    insert into categoria (id, nome) values (6, &apos;Notebooks&apos;)
+Hibernate: 
+    insert into categoria (id, nome) values (7, &apos;Smartphones&apos;)
+Hibernate: 
+    insert into categoria (id, nome) values (8, &apos;Câmeras&apos;)
+Hibernate: 
+    insert into produto_categoria (produto_id, categoria_id) values (1, 2)
+Hibernate: 
+    insert into produto_categoria (produto_id, categoria_id) values (3, 8)
+Hibernate: 
+    insert into produto_categoria (produto_id, categoria_id) values (4, 8)
+Hibernate: 
+    insert into produto_loja (id, nome, preco, data_criacao, descricao) values (101, &apos;Kindle&apos;, 799.0, date_sub(sysdate(), interval 1 day), &apos;Conheça o novo Kindle, agora com iluminação embutida ajustável, que permite que você leia em ambientes abertos ou fechados, a qualquer hora do dia.&apos;)
+Hibernate: 
+    insert into produto_loja (id, nome, preco, data_criacao, descricao) values (103, &apos;Câmera GoPro Hero 7&apos;, 1500.0, date_sub(sysdate(), interval 1 day), &apos;Desempenho 2x melhor.&apos;)
+Hibernate: 
+    insert into produto_loja (id, nome, preco, data_criacao, descricao) values (104, &apos;Câmera Canon 80D&apos;, 3500.0, sysdate(), &apos;O melhor ajuste de foco.&apos;)
+Hibernate: 
+    insert into produto_loja (id, nome, preco, data_criacao, descricao) values (105, &apos;Microfone de Lapela&apos;, 50.0, sysdate(), &apos;Produto massa&apos;)
+Hibernate: 
+    insert into ecm_produto (prd_id, prd_nome, prd_preco, prd_data_criacao, prd_descricao) values (201, &apos;Kindle&apos;, 799.0, date_sub(sysdate(), interval 1 day), &apos;Conheça o novo Kindle, agora com iluminação embutida ajustável, que permite que você leia em ambientes abertos ou fechados, a qualquer hora do dia.&apos;)
+Hibernate: 
+    insert into ecm_produto (prd_id, prd_nome, prd_preco, prd_data_criacao, prd_descricao) values (203, &apos;Câmera GoPro Hero 7&apos;, 1500.0, date_sub(sysdate(), interval 1 day), &apos;Desempenho 2x melhor.&apos;)
+Hibernate: 
+    insert into ecm_produto (prd_id, prd_nome, prd_preco, prd_data_criacao, prd_descricao) values (204, &apos;Câmera Canon 80D&apos;, 3500.0, sysdate(), &apos;O melhor ajuste de foco.&apos;)
+Hibernate: 
+    insert into ecm_produto (prd_id, prd_nome, prd_preco, prd_data_criacao, prd_descricao) values (205, &apos;Microfone de Lapela&apos;, 50.0, sysdate(), &apos;Produto massa&apos;)
+Hibernate: 
+    insert into erp_produto (id, nome, preco, descricao) values (301, &apos;Kindle&apos;, 799.0, &apos;Conheça o novo Kindle, agora com iluminação embutida ajustável, que permite que você leia em ambientes abertos ou fechados, a qualquer hora do dia.&apos;)
+Hibernate: 
+    insert into erp_produto (id, nome, preco, descricao) values (303, &apos;Câmera GoPro Hero 7&apos;, 1500.0, &apos;Desempenho 2x melhor.&apos;)
+Hibernate: 
+    insert into erp_produto (id, nome, preco, descricao) values (304, &apos;Câmera Canon 80D&apos;, 3500.0, &apos;O melhor ajuste de foco.&apos;)
+Hibernate: 
+    insert into erp_produto (id, nome, preco, descricao) values (305, &apos;Microfone de Lapela&apos;, 50.0, &apos;Produto massa&apos;)
+Hibernate: 
+    insert into ecm_categoria (cat_id, cat_nome) values (201, &apos;Eletrodomésticos&apos;)
+Hibernate: 
+    insert into ecm_categoria (cat_id, cat_nome) values (202, &apos;Livros&apos;)
+Hibernate: 
+    insert into ecm_categoria (cat_id, cat_nome) values (203, &apos;Esportes&apos;)
+Hibernate: 
+    insert into ecm_categoria (cat_id, cat_nome) values (204, &apos;Futebol&apos;)
+Hibernate: 
+    insert into ecm_categoria (cat_id, cat_nome) values (205, &apos;Natação&apos;)
+Hibernate: 
+    insert into ecm_categoria (cat_id, cat_nome) values (206, &apos;Notebooks&apos;)
+Hibernate: 
+    insert into ecm_categoria (cat_id, cat_nome) values (207, &apos;Smartphones&apos;)
+Hibernate: 
+    insert into ecm_categoria (cat_id, cat_nome) values (208, &apos;Câmeras&apos;)
+Hibernate: 
+    select
+        pedido0_.id as id1_8_0_,
+        pedido0_.cliente_id as cliente14_8_0_,
+        pedido0_.data_conclusao as data_con2_8_0_,
+        pedido0_.data_criacao as data_cri3_8_0_,
+        pedido0_.data_ultima_atualizacao as data_ult4_8_0_,
+        pedido0_.bairro as bairro5_8_0_,
+        pedido0_.cep as cep6_8_0_,
+        pedido0_.cidade as cidade7_8_0_,
+        pedido0_.complemento as compleme8_8_0_,
+        pedido0_.estado as estado9_8_0_,
+        pedido0_.logradouro as logrado10_8_0_,
+        pedido0_.numero as numero11_8_0_,
+        pedido0_.status as status12_8_0_,
+        pedido0_.total as total13_8_0_,
+        cliente1_.id as id1_1_1_,
+        cliente1_.cpf as cpf2_1_1_,
+        cliente1_.nome as nome3_1_1_,
+        cliente1_1_.data_nascimento as data_nas1_3_1_,
+        cliente1_1_.sexo as sexo2_3_1_,
+        notafiscal2_.pedido_id as pedido_i1_6_2_,
+        notafiscal2_.data_emissao as data_emi2_6_2_,
+        notafiscal2_.xml as xml3_6_2_,
+        pagamento3_.pedido_id as pedido_i2_7_3_,
+        pagamento3_.status as status3_7_3_,
+        pagamento3_.numero_cartao as numero_c4_7_3_,
+        pagamento3_.codigo_barras as codigo_b5_7_3_,
+        pagamento3_.data_vencimento as data_ven6_7_3_,
+        pagamento3_.tipo_pagamento as tipo_pag1_7_3_ 
+    from
+        pedido pedido0_ 
+    left outer join
+        cliente cliente1_ 
+            on pedido0_.cliente_id=cliente1_.id 
+    left outer join
+        cliente_detalhe cliente1_1_ 
+            on cliente1_.id=cliente1_1_.cliente_id 
+    left outer join
+        nota_fiscal notafiscal2_ 
+            on pedido0_.id=notafiscal2_.pedido_id 
+    left outer join
+        pagamento pagamento3_ 
+            on pedido0_.id=pagamento3_.pedido_id 
+    where
+        pedido0_.id=?
+Ap�s carregar o Pedido.
+Hibernate: 
+    select
+        itenspedid0_.pedido_id as pedido_i1_5_0_,
+        itenspedid0_.produto_id as produto_2_5_0_,
+        itenspedid0_.pedido_id as pedido_i1_5_1_,
+        itenspedid0_.produto_id as produto_2_5_1_,
+        itenspedid0_.preco_produto as preco_pr3_5_1_,
+        itenspedid0_.quantidade as quantida4_5_1_,
+        produto1_.id as id1_9_2_,
+        produto1_.ativo as ativo2_9_2_,
+        produto1_.data_criacao as data_cri3_9_2_,
+        produto1_.data_ultima_atualizacao as data_ult4_9_2_,
+        produto1_.descricao as descrica5_9_2_,
+        produto1_.foto as foto6_9_2_,
+        produto1_.nome as nome7_9_2_,
+        produto1_.preco as preco8_9_2_,
+        estoque2_.id as id1_4_3_,
+        estoque2_.produto_id as produto_3_4_3_,
+        estoque2_.quantidade as quantida2_4_3_ 
+    from
+        item_pedido itenspedid0_ 
+    inner join
+        produto produto1_ 
+            on itenspedid0_.produto_id=produto1_.id 
+    left outer join
+        estoque estoque2_ 
+            on produto1_.id=estoque2_.produto_id 
+    where
+        itenspedid0_.pedido_id=?
+Entidade Produto foi carregada.
+Entidade Produto foi carregada.
+Antes de remover Pedido.
+Hibernate: 
+    delete 
+    from
+        item_pedido 
+    where
+        pedido_id=? 
+        and produto_id=?
+Hibernate: 
+    delete 
+    from
+        item_pedido 
+    where
+        pedido_id=? 
+        and produto_id=?
+Hibernate: 
+    select
+        pedido0_.id as id1_8_0_,
+        pedido0_.cliente_id as cliente14_8_0_,
+        pedido0_.data_conclusao as data_con2_8_0_,
+        pedido0_.data_criacao as data_cri3_8_0_,
+        pedido0_.data_ultima_atualizacao as data_ult4_8_0_,
+        pedido0_.bairro as bairro5_8_0_,
+        pedido0_.cep as cep6_8_0_,
+        pedido0_.cidade as cidade7_8_0_,
+        pedido0_.complemento as compleme8_8_0_,
+        pedido0_.estado as estado9_8_0_,
+        pedido0_.logradouro as logrado10_8_0_,
+        pedido0_.numero as numero11_8_0_,
+        pedido0_.status as status12_8_0_,
+        pedido0_.total as total13_8_0_,
+        cliente1_.id as id1_1_1_,
+        cliente1_.cpf as cpf2_1_1_,
+        cliente1_.nome as nome3_1_1_,
+        cliente1_1_.data_nascimento as data_nas1_3_1_,
+        cliente1_1_.sexo as sexo2_3_1_,
+        notafiscal2_.pedido_id as pedido_i1_6_2_,
+        notafiscal2_.data_emissao as data_emi2_6_2_,
+        notafiscal2_.xml as xml3_6_2_,
+        pagamento3_.pedido_id as pedido_i2_7_3_,
+        pagamento3_.status as status3_7_3_,
+        pagamento3_.numero_cartao as numero_c4_7_3_,
+        pagamento3_.codigo_barras as codigo_b5_7_3_,
+        pagamento3_.data_vencimento as data_ven6_7_3_,
+        pagamento3_.tipo_pagamento as tipo_pag1_7_3_ 
+    from
+        pedido pedido0_ 
+    left outer join
+        cliente cliente1_ 
+            on pedido0_.cliente_id=cliente1_.id 
+    left outer join
+        cliente_detalhe cliente1_1_ 
+            on cliente1_.id=cliente1_1_.cliente_id 
+    left outer join
+        nota_fiscal notafiscal2_ 
+            on pedido0_.id=notafiscal2_.pedido_id 
+    left outer join
+        pagamento pagamento3_ 
+            on pedido0_.id=pagamento3_.pedido_id 
+    where
+        pedido0_.id=?
+Ap�s carregar o Pedido.
+Hibernate: 
+    select
+        itenspedid0_.pedido_id as pedido_i1_5_0_,
+        itenspedid0_.produto_id as produto_2_5_0_,
+        itenspedid0_.pedido_id as pedido_i1_5_1_,
+        itenspedid0_.produto_id as produto_2_5_1_,
+        itenspedid0_.preco_produto as preco_pr3_5_1_,
+        itenspedid0_.quantidade as quantida4_5_1_,
+        produto1_.id as id1_9_2_,
+        produto1_.ativo as ativo2_9_2_,
+        produto1_.data_criacao as data_cri3_9_2_,
+        produto1_.data_ultima_atualizacao as data_ult4_9_2_,
+        produto1_.descricao as descrica5_9_2_,
+        produto1_.foto as foto6_9_2_,
+        produto1_.nome as nome7_9_2_,
+        produto1_.preco as preco8_9_2_,
+        estoque2_.id as id1_4_3_,
+        estoque2_.produto_id as produto_3_4_3_,
+        estoque2_.quantidade as quantida2_4_3_ 
+    from
+        item_pedido itenspedid0_ 
+    inner join
+        produto produto1_ 
+            on itenspedid0_.produto_id=produto1_.id 
+    left outer join
+        estoque estoque2_ 
+            on produto1_.id=estoque2_.produto_id 
+    where
+        itenspedid0_.pedido_id=?
+</system-out>
+  </testcase>
+</testsuite>

@@ -45,10 +45,23 @@
 
         <dependency>
             <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-testing</artifactId>
+            <artifactId>hibernate-jcache</artifactId>
             <version>5.4.10.Final</version>
-            <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+            <version>3.8.1</version>
+        </dependency>
+
+<!--        dependencia de cache do hibernate-->
+<!--        <dependency>-->
+<!--            <groupId>org.hibernate</groupId>-->
+<!--            <artifactId>hibernate-testing</artifactId>-->
+<!--            <version>5.4.10.Final</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
 
 
         <dependency>
