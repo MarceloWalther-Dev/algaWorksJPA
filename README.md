@@ -74,7 +74,13 @@ _adicionando a versão no UPDATE acresentando um numero para uma nova versão j�
 _Quando a proxima thread for comitar vai jogar um erro pq ela vai estar com os dados antigos pois a busca que ela vez e não consegui lockar será alterado com a thread que locou_\
 _Ele permite que todo mundo leia mas não atualize_\
 
-**LockModeType.PESSIMISTIC_READ** -> _Esse parametro vai permitir o entityManager consultar fazer a alteração, só que não vai permitir salvar
+**LockModeType.PESSIMISTIC_WRITE** -> _Esse parametro vai permitir o entityManager consultar fazer a alteração, só que não vai permitir salvar
 enquanto a outra thread terminar o serviço, em outras palavras ela vai ficar aguardando até que se encerre a transação_\
 *_*Se atentar para não colocar junto com o lockOtimista*_*\
-_Usamos para pegar os dados atualizados, pegamos do banco e atualizamos e persistimos_
+_Usamos para pegar os dados atualizados, pegamos do banco e atualizamos e persistimos_\
+
+**Outros tipos de lock**
+**OPTMISTIC** -> _Lock Otimista._\
+**OPTMISTIC_FORCE_INCREMENT** ->_Quando buscamos a entidade e não alteramos nada, o jpa não vai entender como uma alteração
+então não vai mudar, se usar OPTMISTIC_FORCE_INCREMENT ele vai forçar uma alteração na versão_\
+**PESSIMISTIC_FORCE_INCREMENT** -> _É uma mistura de_ **PESSIMISTIC_WRITE** _com_ **OPTMISTIC_FORCE_INCREMENT**\
