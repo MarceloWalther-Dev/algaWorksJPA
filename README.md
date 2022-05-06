@@ -52,3 +52,20 @@ _CacheStoreMode.USE -> Adiciona no cache
 CacheStoreMode.BYPASS -> Ignorar Retorno e nao vai adicionar o retorno no cache
 CacheStoreMode.REFRESH -> e parecido com o use toda a consulta que tem ele pega retorno e joga no cache, Porem ele sempre atualiza o cache_
 }
+
+
+# Lock Otimista e Lock Pessimista
+
+**Otimista**: _É uma regra da aplicação, geralmente usado uma versão para cada entidade com anotação_ **@Version**\
+_Gerando uma coluna no banco de dados_\
+**@Version**\
+_private Integer versao;_
+
+_Quando vamos alterar a entidade vinda do banco o hibernate aplica a query:_
+**UPDATE**  produto **SET** nome = '', descricao = '', outros atributos = '' **WHERE** id = 1 and versao = '_versao que veio do banco no caso a_ **5**'
+
+_adicionando a versão no UPDATE acresentando um numero para uma nova versão já que ele foi atualizado._
+**UPDATE**  produto **SET** versao = 'nova versão '6 nome = '', descricao = '', outros atributos = '' **WHERE** id = 1 and versao = '**5**'
+
+**Pessimista**: _Usa recursos extras do banco de dados._\
+"_Ae banco de dados trava essa linha ai e não deixa mais ninguem alterar ela_"
