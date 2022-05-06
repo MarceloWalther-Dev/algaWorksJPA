@@ -17,6 +17,7 @@ public class EntityBase {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    //Lock otimista: a propriedade aceita outros tipos de dados como Long Date
     @Version
     private Integer versao;
 
