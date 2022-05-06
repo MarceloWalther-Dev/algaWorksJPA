@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.Version;
 import javax.validation.constraints.NotBlank;
 
 @Getter
@@ -22,5 +23,4 @@ public class Atributo {
 
     @NotBlank
     private String valor;
-
 }

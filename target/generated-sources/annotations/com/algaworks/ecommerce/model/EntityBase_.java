@@ -9,8 +9,10 @@ import javax.persistence.metamodel.StaticMetamodel;
 public abstract class EntityBase_ {
 
 	public static volatile SingularAttribute<EntityBase, Integer> id;
+	public static volatile SingularAttribute<EntityBase, Integer> versao;
 
 	public static final String ID = "id";
+	public static final String VERSAO = "versao";
 
 }
 
