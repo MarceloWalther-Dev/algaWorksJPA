@@ -9,22 +9,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class EntityManagerTest {
+public class EntityManagerTest extends EntityManagerFactoryTest{
 
-    protected static EntityManagerFactory entityManagerFactory;
     protected EntityManager entityManager;
-
-    //@BeforeClass é iniciado antes da classe iniciar, antes de tudo
-    @BeforeClass
-    public static void setUpBeforeClass(){
-        entityManagerFactory = Persistence.createEntityManagerFactory("Ecommerce-PU");
-    }
-
-    //@AfterClass é iniciado , depois de tudo
-    @AfterClass
-    public static void tearDownAfterClass(){
-        entityManagerFactory.close();
-    }
 
     //Executado antes de cada método anotado com @Test
     @Before

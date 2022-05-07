@@ -84,3 +84,34 @@ _Usamos para pegar os dados atualizados, pegamos do banco e atualizamos e persis
 **OPTMISTIC_FORCE_INCREMENT** ->_Quando buscamos a entidade e não alteramos nada, o jpa não vai entender como uma alteração
 então não vai mudar, se usar OPTMISTIC_FORCE_INCREMENT ele vai forçar uma alteração na versão_\
 **PESSIMISTIC_FORCE_INCREMENT** -> _É uma mistura de_ **PESSIMISTIC_WRITE** _com_ **OPTMISTIC_FORCE_INCREMENT**\
+
+# **_O que é Multitenancy (ou Multitenant) e os tipos de abordagem_**
+
+_É a capacidade da aplicação suportar a execução de diversos usuários ou grupos de usuários que possuem alguma ligação 
+e precisam do funcionamento dela de uma forma específica. Em geral cada um terá seus dados separados,
+configurações próprias, funcionam de forma independente, mas é uma aplicação só rodando. 
+Em geral esse grupo de usuários, pode ser uma empresa que contratou um serviço de aplicação. 
+Mas pode ser seu navegador que permite que vários usuários o usem de forma independente sem que o uso de um afete o outro_
+
+# Tipos de abordagem
+
+![img_1.png](img_1.png)
+
+![img.png](img.png)
+
+_Podemos ter em um sistema dois bancos de dados de clientes diferentes mas e possivel que o cliente necessite que sejam em maquinas diferentes,
+Por exemplo se o cliente sofre auditorias e necessario que ele separe os bancos por maquina em maquinas separadas_
+
+
+![img_2.png](img_2.png)
+_Uma instancia de banco de dados e esquemas diferentes para cada cliente.
+Nada mais e que ter mais de um esquema.
+Um esquema por cliente.
+Por maquina e por schema sao so configuracoes, nao necessita mudar aplicacao._
+
+
+![img_3.png](img_3.png)
+_Uma maquina e um esquema so, sera incluido uma coluna no banco onde ficara o TenantID_\
+**TenantID** - empresa A\
+**TenantID** - empresa B\
+**TenantID** - empresa C
